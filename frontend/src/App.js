@@ -2,6 +2,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Error from './components/Error'
 
+
+const SayHello = () => {
+  return <div>Hello Wiki A</div>
+}
+
+
 const App = () => {
   return (
     <BrowserRouter>
