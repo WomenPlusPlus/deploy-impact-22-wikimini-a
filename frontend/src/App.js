@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Error from './components/Error'
 
 const SayHello = () => {
-  return <div>Hello Wikimini A</div>
+  return <div>Hello Wiki A</div>
 }
 
 const App = () => {
