@@ -1,9 +1,66 @@
+import { useState } from 'react'
+import PropTypes from 'prop-types'
+import axios from 'axios'
 import Paper from '@mui/material/Paper'
 import InputBase from '@mui/material/InputBase'
 import IconButton from '@mui/material/IconButton'
 import SearchIcon from '@mui/icons-material/Search'
 
-export default function SearchBar() {
+export default function SearchBar({ searchValue = '' }) {
+  const [searchInput, setSearchInput] = useState(searchValue)
+  const [searchResult, setSearchResult] = useState({})
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      getData()
+    }
+  }
+
+  const handleChange = (e) => {
+    setSearchInput(e.target.value)
+  }
+
+  const endpoint = 'https://en.wikipedia.org/w/api.php?'
+  // const endpoint = 'http://192.168.64.2/api.php'
+
+  const params = {
+    origin: '*',
+    format: 'json',
+    action: 'query',
+    prop: 'extracts',
+    exchars: 250,
+    exintro: true,
+    explaintext: true,
+    generator: 'search',
+    gsrlimit: 5,
+  }
+
+  const isInputEmpty = (input) => {
+    if (!input || input === '') return true
+    return false
+  }
+
+  const getData = async () => {
+    if (isInputEmpty(searchInput)) return
+
+    params.gsrsearch = searchInput
+
+    try {
+      const { data } = await axios.get(endpoint, { params })
+      const results = Object.values(data.query.pages).map((page) => ({
+        pageId: page.pageid,
+        title: page.title,
+        intro: page.extract,
+      }))
+      setSearchResult(results)
+    } catch (error) {
+      throw new Error(error)
+    }
+  }
+
+  console.log(searchResult)
+
   return (
     <Paper
       component='form'
@@ -33,6 +90,8 @@ export default function SearchBar() {
         }}
         placeholder='What are you looking for?'
         inputProps={{ 'aria-label': 'What are you looking for?' }}
+        onKeyPress={handleKeyPress}
+        onChange={handleChange}
       />
       <IconButton type='button' sx={{ p: '10px' }} aria-label='search'>
         <SearchIcon
@@ -43,4 +102,8 @@ export default function SearchBar() {
       </IconButton>
     </Paper>
   )
+}
+
+SearchBar.propTypes = {
+  searchValue: PropTypes.string,
 }
