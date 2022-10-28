@@ -35,7 +35,6 @@ const Articles = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          paddingTop: '2rem',
         }}
       >
         <Stack
@@ -45,10 +44,10 @@ const Articles = () => {
           alignItems='center'
           spacing={20}
         >
-          <Box sx={{ paddingTop: '4rem' }}>
+          <Box sx={{ paddingTop: '6rem' }}>
             <Letters />
           </Box>
-          <Box>
+          <Box sx={{ height: '100%' }}>
             <Typography
               sx={{
                 fontFamily: 'Inter',
