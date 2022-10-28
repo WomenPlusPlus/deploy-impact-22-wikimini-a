@@ -1,17 +1,20 @@
 export const WikiminiRoutes = {
-  "HOME": {
-    path: "/"
+  HOME: {
+    path: '/',
   },
-  "LOGIN": {
-    path: "/login",
+  LOGIN: {
+    path: '/login',
   },
-  "FORGOT_PASSWORD": {
-    path: "/login/forgot-password",
+  FORGOT_PASSWORD: {
+    path: '/login/forgot-password',
   },
-  "RESET_PASSWORD": {
-    path: "/reset-password/:uuid",
+  RESET_PASSWORD: {
+    path: '/reset-password/:uuid',
   },
-  "DASHBOARD": {
-    path: "/dashboard",
+  DASHBOARD: {
+    path: '/dashboard',
   },
-};
+  ARTICLES: {
+    path: '/articles',
+  },
+}
