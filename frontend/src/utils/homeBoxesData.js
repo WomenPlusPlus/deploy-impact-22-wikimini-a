@@ -1,18 +1,19 @@
 export const homeBoxesData = [
   {
-    title: 'EXPLORE ARTICLES',
+    title: 'Articles',
     image: require('../assets/homework.png'),
     id: 'article',
+    route: 'articles',
   },
+  { title: 'Activities', image: require('../assets/draw.png'), id: 'activity' },
   {
-    title: 'BE A WRITER',
-    image: require('../assets/studySet.png'),
-    id: 'writter',
-  },
-  { title: 'ACTIVITIES', image: require('../assets/draw.png'), id: 'activity' },
-  {
-    title: 'DICTIONARY',
+    title: 'Dictionary',
     image: require('../assets/dictionary.png'),
     id: 'dictionary',
+  },
+  {
+    title: 'Be a writer',
+    image: require('../assets/studySet.png'),
+    id: 'writter',
   },
 ]

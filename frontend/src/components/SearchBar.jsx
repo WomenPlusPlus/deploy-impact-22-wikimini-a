@@ -13,7 +13,7 @@ export default function SearchBar() {
         display: 'flex',
         alignItems: 'center',
         height: '50px',
-        width: 600,
+        width: 500,
         background: '#54CABD',
         borderRadius: '33.3382px',
       }}
