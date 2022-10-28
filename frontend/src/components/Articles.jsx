@@ -35,26 +35,8 @@ const Articles = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          paddingTop: '2rem',
         }}
       >
-        <Typography
-          sx={{
-            fontFamily: 'Inter',
-            fontStyle: 'normal',
-            fontWeight: 700,
-            fontSize: '48px',
-            lineHeight: '58px',
-            display: 'flex',
-            alignItems: 'center',
-            textAlign: 'center',
-            color: white,
-            marginBottom: '2rem',
-          }}
-          variant='h3'
-        >
-          Articles
-        </Typography>
         <Stack
           sx={{ height: 'calc(100% - 88px)' }}
           direction='row'
@@ -62,10 +44,27 @@ const Articles = () => {
           alignItems='center'
           spacing={20}
         >
-          <Box>
+          <Box sx={{ paddingTop: '6rem' }}>
             <Letters />
           </Box>
-          <Box>
+          <Box sx={{ height: '100%' }}>
+            <Typography
+              sx={{
+                fontFamily: 'Inter',
+                fontStyle: 'normal',
+                fontWeight: 700,
+                fontSize: '38px',
+                lineHeight: '58px',
+                display: 'flex',
+                alignItems: 'center',
+                textAlign: 'center',
+                color: white,
+                margin: '2rem',
+              }}
+              variant='h3'
+            >
+              Articles
+            </Typography>
             <SearchBar />
             <Grid
               sx={{ flexGrow: 1, width: 520, marginTop: '1rem' }}
