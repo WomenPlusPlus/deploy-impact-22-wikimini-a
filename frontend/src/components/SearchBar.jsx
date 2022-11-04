@@ -8,7 +8,7 @@ import SearchIcon from '@mui/icons-material/Search'
 
 export default function SearchBar({ searchValue = '' }) {
   const [searchInput, setSearchInput] = useState(searchValue)
-  const [searchResult, setSearchResult] = useState({})
+  const [, setSearchResult] = useState({})
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -58,8 +58,6 @@ export default function SearchBar({ searchValue = '' }) {
       throw new Error(error)
     }
   }
-
-  console.log(searchResult)
 
   return (
     <Paper

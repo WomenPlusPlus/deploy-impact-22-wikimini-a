@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import Letters from './Letters'
 import Grid from '@mui/material/Grid'
 import Stack from '@mui/material/Stack'
@@ -11,6 +12,10 @@ import { Typography } from '@mui/material'
 import { articlesCategories } from '../utils/articlesCategories'
 
 const Articles = () => {
+  const navigate = useNavigate()
+  const handleSearchLetter = async (letter) => {
+    navigate(`/search-letter/${letter}`)
+  }
   return (
     <Box
       sx={{
@@ -45,7 +50,7 @@ const Articles = () => {
           spacing={20}
         >
           <Box sx={{ paddingTop: '6rem' }}>
-            <Letters />
+            <Letters handleSearchLetter={handleSearchLetter} />
           </Box>
           <Box sx={{ height: '100%' }}>
             <Typography

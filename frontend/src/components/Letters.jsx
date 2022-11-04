@@ -1,3 +1,4 @@
+import { PropTypes } from 'prop-types'
 import { Letter, LetterList } from '../styles/Letters'
 import { Fade } from '@mui/material'
 
@@ -30,14 +31,20 @@ const abcList = [
   'Z',
 ]
 
-const lettersList = abcList.map((letter) => (
-  <Fade key={letter} in={true} timeout={3000}>
-    <Letter>{letter}</Letter>
-  </Fade>
-))
+const Letters = ({ handleSearchLetter }) => {
+  return (
+    <LetterList>
+      {abcList.map((letter) => (
+        <Fade key={letter} in={true} timeout={3000}>
+          <Letter onClick={() => handleSearchLetter(letter)}>{letter}</Letter>
+        </Fade>
+      ))}
+    </LetterList>
+  )
+}
 
-const Letters = () => {
-  return <LetterList>{lettersList}</LetterList>
+Letters.propTypes = {
+  handleSearchLetter: PropTypes.func,
 }
 
 export default Letters
