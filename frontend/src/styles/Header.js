@@ -1,6 +1,6 @@
-import { Button, Stack } from '@mui/material';
+import { Button, Stack, MenuItem, IconButton, Divider } from '@mui/material';
 import { styled } from '@mui/system'
-import { darkYellow, red, white, yellow } from '../theme/colors';
+import { darkYellow, red, white, yellow, green } from '../theme/colors';
 
 export const HeaderContainer = styled(Stack)({
     background: white, 
@@ -14,6 +14,17 @@ export const HeaderContainer = styled(Stack)({
 
 export const MenuButtonContainer = styled('div')({
     flex: '1',
+})
+
+export const LogoMenu = styled('img')({
+    maxWidth: '170px',
+    width: '100%',
+    height: 'auto',
+    marginTop: '10%',
+    marginLeft: '25%',
+    marginBottom: '10%',
+    display: 'flex',
+    flexDirection: 'column'
 })
 
 export const Logo = styled('img')({
@@ -62,4 +73,35 @@ export const CreateAccount = styled(Button)({
         transition: '.3s',
         cursor: 'pointer',
       },
+})
+
+export const SideBar = styled('div')({
+    borderTopRightRadius: '10%',
+    borderBottomRightRadius: '10%',
+    backgroundColor: yellow,
+    width: '150%',
+    height: 'inherit'
+})
+
+export const MenuIconSideBar = styled(MenuItem)({
+    color: white,
+    fontWeight: '750',
+    font: 'Futura',
+    marginLeft: '5%',
+    fontSize: 'small'
+})
+
+export const CloseButtonContainer = styled(IconButton)({
+    marginTop: '5%',
+    marginLeft: '5%',
+    background: green, 
+    color: white
+})
+
+export const DividerMenu = styled(Divider)({
+    marginLeft: '5%', 
+    marginRight: '5%', 
+    borderBottomWidth:'2px', 
+    background: white,
+    borderColor: white
 })
