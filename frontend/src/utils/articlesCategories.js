@@ -2,12 +2,12 @@ export const articlesCategories = [
   {
     title: 'Languages',
   },
-  { title: 'Natural Sciences' },
+  { title: 'Default' },
   {
-    title: 'Social Sciences',
+    title: 'Science',
   },
   {
-    title: 'Arts',
+    title: 'Art',
   },
   {
     title: 'Sports',

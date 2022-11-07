@@ -3,6 +3,7 @@ import GuestLayout from '../components/Layout/GuestLayout'
 import Home from '../components/Home'
 import Articles from '../components/Articles'
 import SearchLetter from '../components/SearchLetter'
+import SearchCategory from '../components/SearchCategory'
 import { getRoutePath } from './route-utils'
 
 export const AppRouter = () => {
@@ -32,6 +33,14 @@ export const AppRouter = () => {
             element={
               <GuestLayout>
                 <SearchLetter />
+              </GuestLayout>
+            }
+          />
+          <Route
+            path={getRoutePath('SEARCH_CATEGORY')}
+            element={
+              <GuestLayout>
+                <SearchCategory />
               </GuestLayout>
             }
           />

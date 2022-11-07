@@ -20,4 +20,7 @@ export const WikiminiRoutes = {
   SEARCH_LETTER: {
     path: '/search-letter/:letter',
   },
+  SEARCH_CATEGORY: {
+    path: '/search-category/:category',
+  },
 }
