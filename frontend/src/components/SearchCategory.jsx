@@ -1,33 +1,38 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import Divider from '@mui/material/Divider'
 import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
+import CardMedia from '@mui/material/CardMedia'
 import { ButtonFolder } from '../styles/Home'
 import { green, white, yellow } from '../theme/colors'
 import { Typography } from '@mui/material'
+import { categoryImages } from '../utils/categoryImages'
 
-const endpoint =
-  'https://api.wikimedia.org/core/v1/wikipedia/en/search/title?q=earth&limit=5'
 // const endpoint = 'http://192.168.64.2/api.php'
+const endpoint = 'https://en.wikipedia.org/w/api.php'
+
 const params = {
-  limit: 10,
+  origin: '*',
+  action: 'query',
+  list: 'categorymembers',
+  cmlimit: '40',
+  format: 'json',
 }
 
-const SearchLetter = () => {
+const SearchCategory = () => {
   const [searchResults, setSearchResults] = useState([])
-  const { letter } = useParams()
-
-  params.q = letter
+  const { category } = useParams()
 
   useEffect(() => {
     const getData = async () => {
+      params.cmtitle = `Category:${category}`
       try {
         const { data } = await axios.get(endpoint, { params })
-        setSearchResults(data.pages)
+        setSearchResults(data.query.categorymembers)
       } catch (error) {
         throw new Error(error)
       }
@@ -62,25 +67,24 @@ const SearchLetter = () => {
           justifyContent: 'center',
         }}
       >
-        <Typography
+        <CardMedia
+          component='img'
+          image={categoryImages[category]}
+          alt='green iguana'
           sx={{
-            fontFamily: 'Inter',
-            fontStyle: 'normal',
-            fontWeight: 900,
-            fontSize: '138px',
-            lineHeight: '58px',
-            textAlign: 'center',
-            margin: '4rem',
-            color: yellow,
+            width: 120,
+            height: 120,
+            margin: '2rem',
+            borderRadius: '50%',
+            objectFit: 'cover',
+            backgroundColor: yellow,
+            // filter: 'contrast(400%) brightness(1)',
           }}
-          variant='h3'
-        >
-          {letter}
-        </Typography>
+        />
         <List sx={{ height: '80%', width: '96%', overflow: 'auto' }}>
-          {searchResults.map(({ id, title }) => {
+          {searchResults.map(({ title }, index) => {
             return (
-              <div key={id}>
+              <div key={index}>
                 <ListItem button>
                   <Typography
                     sx={{
@@ -108,4 +112,4 @@ const SearchLetter = () => {
   )
 }
 
-export default SearchLetter
+export default SearchCategory

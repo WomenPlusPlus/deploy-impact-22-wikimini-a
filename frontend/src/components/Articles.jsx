@@ -107,6 +107,9 @@ const Articles = () => {
                             },
                           }}
                           elevation={3}
+                          onClick={() =>
+                            navigate(`/search-category/${title.toLowerCase()}`)
+                          }
                         >
                           <Typography
                             sx={{
