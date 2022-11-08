@@ -1,6 +1,6 @@
 import { styled } from '@mui/system'
 import { Paper } from '@mui/material'
-import { white, green, blue, dark, yellow } from '../theme/colors'
+import { white, green, dark } from '../theme/colors'
 
 export const ButtonFolder = styled('button')((props) => ({
   width: '150px',
@@ -30,21 +30,21 @@ export const ImageInBox = styled('img')((props) => ({
   marginBottom: props.id === 'article' ? '-30px' : '-40px',
 }))
 
-export const TextInBox = styled('p')({
+export const TextInBox = styled('p')((props) => ({
   fontFamily: 'Futura',
   fontStyle: 'normal',
   fontWeight: '700',
   fontSize: '18px',
   textAlign: 'center',
   lineHeight: '24px',
-  color: blue,
+  color: props.textcolor,
   margin: '0px',
-})
+}))
 
-export const PaperBox = styled(Paper)({
+export const PaperBox = styled(Paper)((props) => ({
   height: 140,
   width: 138,
-  backgroundColor: yellow,
+  backgroundColor: props.backgroundcolor,
   borderRadius: '15px',
   display: 'flex',
   flexDirection: 'column',
@@ -58,4 +58,4 @@ export const PaperBox = styled(Paper)({
     transition: '.3s',
     cursor: 'pointer',
   },
-})
+}))

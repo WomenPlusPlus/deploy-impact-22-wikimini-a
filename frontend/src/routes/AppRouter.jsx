@@ -5,6 +5,7 @@ import Articles from '../components/Articles'
 import SearchLetter from '../components/SearchLetter'
 import SearchCategory from '../components/SearchCategory'
 import { getRoutePath } from './route-utils'
+import SearchResults from '../components/SearchResults'
 
 export const AppRouter = () => {
   return (
@@ -25,6 +26,14 @@ export const AppRouter = () => {
             element={
               <GuestLayout>
                 <Articles />
+              </GuestLayout>
+            }
+          />
+          <Route
+            path={getRoutePath('SEARCH')}
+            element={
+              <GuestLayout>
+                <SearchResults />
               </GuestLayout>
             }
           />
