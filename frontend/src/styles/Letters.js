@@ -7,7 +7,8 @@ export const Letter = styled('div')({
   fontFamily: 'Futura',
   fontStyle: 'normal',
   textAlign: 'center',
-  flex: '25%',
+  flex: '15%',
+  margin: '0px',
   '&:hover': {
     fontSize: '30px',
     cursor: 'pointer',
@@ -16,8 +17,8 @@ export const Letter = styled('div')({
 })
 
 export const LetterList = styled('main')({
-  // backgroundColor: '#0CB3A1',
-  width: '300px',
   display: 'flex',
   flexFlow: 'row wrap',
+  marginTop: '2.5rem',
+  marginBottom: '1rem',
 })
