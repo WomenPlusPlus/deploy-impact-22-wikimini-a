@@ -16,7 +16,6 @@ export const ButtonFolder = styled('button')((props) => ({
   textAlign: 'center',
   color: white,
   background: props.right ? dark : green,
-  marginRight: props.right ? '40px !important' : '0px',
   '&:hover': {
     boxShadow: 'inset 0 0 100px 100px rgba(255, 255, 255, 0.1)',
     transition: '.3s',

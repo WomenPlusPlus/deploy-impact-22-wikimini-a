@@ -4,10 +4,7 @@ import axios from 'axios'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import Divider from '@mui/material/Divider'
-import Stack from '@mui/material/Stack'
-import Box from '@mui/material/Box'
-import { ButtonFolder } from '../styles/Home'
-import { green, white, yellow } from '../theme/colors'
+import { white, yellow } from '../theme/colors'
 import { Typography } from '@mui/material'
 
 const endpoint =
@@ -36,75 +33,49 @@ const SearchLetter = () => {
   }, [])
 
   return (
-    <Box
-      sx={{
-        height: '100%',
-      }}
-    >
-      <Box
+    <>
+      <Typography
         sx={{
-          paddingTop: '40px',
+          fontFamily: 'Inter',
+          fontStyle: 'normal',
+          fontWeight: 900,
+          fontSize: '138px',
+          lineHeight: '58px',
+          textAlign: 'center',
+          margin: '4rem',
+          color: yellow,
         }}
+        variant='h3'
       >
-        <Stack direction='row' justifyContent='flex-end' spacing={2}>
-          <ButtonFolder>Kids</ButtonFolder>
-          <ButtonFolder right>Students</ButtonFolder>
-        </Stack>
-      </Box>
-      <Box
-        sx={{
-          height: 'calc(100% - 88px)',
-          borderRadius: '3% 3% 0px 0px',
-          backgroundColor: green,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Typography
-          sx={{
-            fontFamily: 'Inter',
-            fontStyle: 'normal',
-            fontWeight: 900,
-            fontSize: '138px',
-            lineHeight: '58px',
-            textAlign: 'center',
-            margin: '4rem',
-            color: yellow,
-          }}
-          variant='h3'
-        >
-          {letter}
-        </Typography>
-        <List sx={{ height: '80%', width: '96%', overflow: 'auto' }}>
-          {searchResults.map(({ id, title }) => {
-            return (
-              <div key={id}>
-                <ListItem button>
-                  <Typography
-                    sx={{
-                      fontFamily: 'Inter',
-                      fontStyle: 'normal',
-                      fontWeight: 700,
-                      fontSize: '24px',
+        {letter}
+      </Typography>
+      <List sx={{ height: '80%', width: '96%', overflow: 'auto' }}>
+        {searchResults.map(({ id, title }) => {
+          return (
+            <div key={id}>
+              <ListItem button>
+                <Typography
+                  sx={{
+                    fontFamily: 'Inter',
+                    fontStyle: 'normal',
+                    fontWeight: 700,
+                    fontSize: '24px',
 
-                      textAlign: 'center',
-                      color: white,
-                      margin: '2rem',
-                    }}
-                    variant='h3'
-                  >
-                    {title}
-                  </Typography>
-                </ListItem>
-                <Divider />
-              </div>
-            )
-          })}
-        </List>
-      </Box>
-    </Box>
+                    textAlign: 'center',
+                    color: white,
+                    margin: '2rem',
+                  }}
+                  variant='h3'
+                >
+                  {title}
+                </Typography>
+              </ListItem>
+              <Divider />
+            </div>
+          )
+        })}
+      </List>
+    </>
   )
 }
 

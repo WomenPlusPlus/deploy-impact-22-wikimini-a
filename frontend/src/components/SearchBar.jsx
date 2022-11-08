@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper'
 import InputBase from '@mui/material/InputBase'
 import IconButton from '@mui/material/IconButton'
 import SearchIcon from '@mui/icons-material/Search'
+import { lightGreen } from '../theme/colors'
 
 export default function SearchBar({ searchValue = '' }) {
   const [searchInput, setSearchInput] = useState(searchValue)
@@ -68,8 +69,9 @@ export default function SearchBar({ searchValue = '' }) {
         display: 'flex',
         alignItems: 'center',
         height: '50px',
-        width: 500,
-        background: '#54CABD',
+        width: '100%',
+        maxWidth: '600px',
+        background: lightGreen,
         borderRadius: '33.3382px',
       }}
     >
@@ -84,7 +86,7 @@ export default function SearchBar({ searchValue = '' }) {
           lineHeight: '27px',
           color: '#FFFFFF',
           boderStyle: 'none',
-          paddingLeft: '15px',
+          paddingLeft: '5px',
         }}
         placeholder='What are you looking for?'
         inputProps={{ 'aria-label': 'What are you looking for?' }}
