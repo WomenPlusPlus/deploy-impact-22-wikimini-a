@@ -19,7 +19,7 @@ const Home = () => {
       >
         <Grid item xs={12}>
           <Grid container justifyContent='center' spacing={2}>
-            {homeBoxesData.map(({ id, title, image }, index) => (
+            {homeBoxesData.map(({ id, title, image, textColor, backgroundColor }, index) => (
               <Grow
                 key={id}
                 in={true}
@@ -32,8 +32,8 @@ const Home = () => {
                     id === 'article' ? navigate(getRoutePath('ARTICLES')) : null
                   }
                 >
-                  <PaperBox elevation={3}>
-                    <TextInBox>{title}</TextInBox>
+                  <PaperBox backgroundcolor={backgroundColor} elevation={3}>
+                    <TextInBox textcolor={textColor}>{title}</TextInBox>
                     <ImageInBox src={image} alt={title} id={id} />
                   </PaperBox>
                 </Grid>

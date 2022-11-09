@@ -17,6 +17,9 @@ export const WikiminiRoutes = {
   ARTICLES: {
     path: '/articles',
   },
+  SEARCH: {
+    path: '/search/:item'
+  },
   SEARCH_LETTER: {
     path: '/search-letter/:letter',
   },
