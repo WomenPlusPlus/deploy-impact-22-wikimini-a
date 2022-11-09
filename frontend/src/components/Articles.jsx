@@ -38,7 +38,12 @@ const Articles = () => {
       <Letters handleSearchLetter={handleSearchLetter} />
       <Box>
         <Grid
-          sx={{ flexGrow: 1, width: '100%', marginTop: '1rem' }}
+          sx={{
+            flexGrow: 1,
+            minHeight: '80vh',
+            width: '100%',
+            marginTop: '1rem',
+          }}
           container
           spacing={1}
         >

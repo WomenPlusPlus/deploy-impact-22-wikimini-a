@@ -28,7 +28,7 @@ const ContentLayout = ({ inheritChild }) => {
       </Box>
       <Box
         sx={{
-          height: 'calc(100% - 88px)',
+          height: 'calc(100vh - 108px)',
           borderRadius: '2% 2% 0px 0px',
           backgroundColor: green,
           display: 'flex',
