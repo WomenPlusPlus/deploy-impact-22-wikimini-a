@@ -1,6 +1,6 @@
 import logo from '../assets/logo.svg'
 import wikiminiLogo from '../assets/wikiminiLogo.svg'
-import { Drawer, IconButton, List, ListItem } from '@mui/material'
+import { Box, Drawer, IconButton, List, ListItem } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
 import {
@@ -19,6 +19,7 @@ import {
 import { white, green } from '../theme/colors'
 import { useNavigate } from 'react-router-dom'
 import { getRoutePath } from '../routes/route-utils'
+import { menuSideBarItems } from '../utils/menuSideBarItems'
 import { useState } from 'react'
 
 const Header = () => {
@@ -55,26 +56,16 @@ const Header = () => {
             </CloseButtonContainer>
             <LogoMenu src={wikiminiLogo} />
             <List>
-              <ListItem>
-                <MenuIconSideBar>Primary students</MenuIconSideBar>
-              </ListItem>
-              <DividerMenu />
-              <ListItem>
-                <MenuIconSideBar>Secondary students</MenuIconSideBar>
-              </ListItem>
-              <DividerMenu />
-              <ListItem>
-                <MenuIconSideBar>My account</MenuIconSideBar>
-              </ListItem>
-              <DividerMenu />
-              <ListItem>
-                <MenuIconSideBar>Help</MenuIconSideBar>
-              </ListItem>
-              <DividerMenu />
-              <ListItem>
-                <MenuIconSideBar>Change language</MenuIconSideBar>
-              </ListItem>
-              <DividerMenu />
+                {menuSideBarItems.map((item) => (
+                    <Box key={item.text}>
+                        <ListItem sx={{ padding: '0 0 0 0.5em'}}>
+                            <MenuIconSideBar>
+                                {item.text}
+                            </MenuIconSideBar>
+                        </ListItem>
+                        <DividerMenu />
+                    </Box>
+                ))}
             </List>
           </SideBar>
         </Drawer>

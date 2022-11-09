@@ -4,12 +4,12 @@ import { darkYellow, red, white, yellow, green } from '../theme/colors';
 
 export const HeaderContainer = styled(Stack)({
     background: white, 
-    paddingTop: '40px',
+    paddingTop: '1%',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    paddingLeft: '40px',
-    paddingRight: '40px',
+    marginLeft: '5%',
+    marginRight: '4%'
 })
 
 export const MenuButtonContainer = styled('div')({
@@ -17,19 +17,20 @@ export const MenuButtonContainer = styled('div')({
 })
 
 export const LogoMenu = styled('img')({
-    maxWidth: '170px',
+    maxWidth: '10.625em',
     width: '100%',
     height: 'auto',
     marginTop: '10%',
-    marginLeft: '25%',
+    marginLeft: '15%',
     marginBottom: '10%',
     display: 'flex',
     flexDirection: 'column'
 })
 
 export const Logo = styled('img')({
-    width: '195px',
-    height: '68px',
+    width: '10em',
+    height: '3.5em',
+    marginTop: '1%',
     flex: '1',
     '&:hover': {
         cursor: 'pointer'
@@ -45,14 +46,14 @@ export const AuthContainer = styled('div')({
 
 export const Login = styled('button')({
     border: `1px solid ${red}`,
-    borderRadius: '30px',
+    borderRadius: '1.8em',
     color: red,
     backgroundColor: white,
-    fontWeight: '500',
-    fontSize: '16px',
-    marginRight: '20px',
-    paddingLeft: '40px',
-    paddingRight: '40px',
+    fontWeight: 'medium',
+    fontSize: '1em',
+    marginRight: '5%',
+    paddingLeft: '10%',
+    paddingRight: '15%',
     '&:hover': {
         transition: '.3s',
         cursor: 'pointer',
@@ -61,13 +62,13 @@ export const Login = styled('button')({
 })
 
 export const CreateAccount = styled(Button)({
-    borderRadius: '30px',
+    borderRadius: '1.8em',
     color: white,
     backgroundColor: yellow,
-    fontWeight: '500',
-    fontSize: '16px',
-    paddingLeft: '20px',
-    paddingRight: '20px',
+    fontWeight: 'medium',
+    fontSize: '0.8em',
+    paddingLeft: '5%',
+    paddingRight: '5%',
     '&:hover': {
         backgroundColor: darkYellow,
         transition: '.3s',
@@ -85,10 +86,10 @@ export const SideBar = styled('div')({
 
 export const MenuIconSideBar = styled(MenuItem)({
     color: white,
-    fontWeight: '750',
+    fontWeight: 'bold',
     font: 'Futura',
     marginLeft: '5%',
-    fontSize: 'small'
+    fontSize: '0.8em'
 })
 
 export const CloseButtonContainer = styled(IconButton)({
@@ -99,9 +100,9 @@ export const CloseButtonContainer = styled(IconButton)({
 })
 
 export const DividerMenu = styled(Divider)({
-    marginLeft: '5%', 
-    marginRight: '5%', 
-    borderBottomWidth:'2px', 
+    marginLeft: '10%', 
+    marginRight: '8%', 
+    borderBottomWidth:'0.1em', 
     background: white,
     borderColor: white
 })
