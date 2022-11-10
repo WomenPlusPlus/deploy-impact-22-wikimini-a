@@ -40,7 +40,7 @@ const SearchResults = () => {
     }
 
     getData()
-  }, [])
+  }, [item])
 
   return (
     <>
