@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import Divider from '@mui/material/Divider'
 import { white, yellow } from '../theme/colors'
 import { Typography } from '@mui/material'
-import ReadArticle from './ReadArticle'
 
 const endpoint =
   'https://api.wikimedia.org/core/v1/wikipedia/en/search/title?q=earth&limit=5'
@@ -18,8 +17,7 @@ const params = {
 const SearchLetter = () => {
   const [searchResults, setSearchResults] = useState([])
   const { letter } = useParams()
-  const [openDrawer, setOpenDrawer] = useState(false);
-  const [articleId, setArticleId] = useState();
+  const navigate = useNavigate()
 
   params.q = letter
 
@@ -57,8 +55,7 @@ const SearchLetter = () => {
           return (
             <div key={id}>
               <ListItem button onClick={() => {
-                setOpenDrawer(true);
-                setArticleId(id);
+                navigate(`/article/${id}`)
               }}>
                 <Typography
                   sx={{
@@ -80,7 +77,6 @@ const SearchLetter = () => {
           )
         })}
       </List>
-      <ReadArticle open={openDrawer} setOpenDrawer={setOpenDrawer} articleId={articleId} />
     </>
   )
 }

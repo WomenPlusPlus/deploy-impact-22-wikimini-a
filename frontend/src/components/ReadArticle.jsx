@@ -1,32 +1,33 @@
 /* eslint-disable react/jsx-key */
 import { Accordion, AccordionDetails, AccordionSummary, Drawer, Typography } from "@mui/material";
-import PropTypes from 'prop-types';
 import { useState, useEffect } from "react";
 import close from '../assets/close.svg'
 import { BottomContainer, MainContainer, TopContainer } from "../styles/ReadArticle";
 import { dark, white } from "../theme/colors";
 import { resultArticles } from "../utils/mockups";
-import arrowDown from "../assets/arrowDown.svg";
 import edit from "../assets/edit.svg";
 import SearchResultContainer from "./SearchResultContainer";
+import arrowDown from "../assets/arrowDown.svg"
 
-const ReadArticle = ({ open, setOpenDrawer, articleId }) => {
+const ReadArticle = () => {
 
     // THIS LINE HAS TO BE REMOVED WHEN WE INTERGRATE THE API CALL
-    articleId = 1;
-
+    const id = 1;
+    // const { id } = useParams();
+    const [openDrawer, setOpenDrawer] = useState(false);
     const [article, setArticle] = useState({});
     // const [firstRelatedOpen, setFirstRelatedOpen] = useState(false);
     // const [secondRelatedOpen, setSecondRelatedOpen] = useState(false);
 
     useEffect(() => {
-        setArticle(resultArticles.find(item => item.id === articleId))
+        setArticle(resultArticles.find(item => item.id === id))
+        setOpenDrawer(true);
     }, [])
 
     return(
         <Drawer 
         anchor="bottom"
-        open={open}
+        open={openDrawer}
         PaperProps={{
             sx: {
                 width: '100%',
@@ -36,7 +37,9 @@ const ReadArticle = ({ open, setOpenDrawer, articleId }) => {
         >
             <TopContainer>
                 <Typography sx={{ fontWeight: '700', fontSize: '14px', color: dark, margin: 0 }}>Reading level:</Typography>
-                <img style={{ height: '20px', weight: '20px' }} src={close} onClick={() => setOpenDrawer(false)} />
+                <img style={{ height: '20px', weight: '20px' }} src={close} onClick={() => {
+                    setOpenDrawer(false)
+                }} />
             </TopContainer>
             <MainContainer>
                 <Typography
@@ -60,8 +63,7 @@ const ReadArticle = ({ open, setOpenDrawer, articleId }) => {
                             >
                                 <AccordionSummary
                                 expandIcon={<img style={{ height: '28px' }} src={arrowDown} />}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
+                                id={article.id}
                                 sx={{
                                     backgroundColor: '#0AAAAA',
                                     borderRadius: '30px',
@@ -108,9 +110,3 @@ const ReadArticle = ({ open, setOpenDrawer, articleId }) => {
 }
 
 export default ReadArticle;
-
-ReadArticle.propTypes = {
-    open: PropTypes.boolean,
-    articleId: PropTypes.number,
-    setOpenDrawer: PropTypes.function,
-}

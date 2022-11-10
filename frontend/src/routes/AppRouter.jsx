@@ -6,6 +6,7 @@ import SearchLetter from '../components/SearchLetter'
 import SearchCategory from '../components/SearchCategory'
 import { getRoutePath } from './route-utils'
 import SearchResults from '../components/SearchResults'
+import ReadArticle from '../components/ReadArticle'
 
 export const AppRouter = () => {
   return (
@@ -26,6 +27,14 @@ export const AppRouter = () => {
             element={
               <GuestLayout>
                 <Articles />
+              </GuestLayout>
+            }
+          />
+          <Route
+            path={getRoutePath('ARTICLE')}
+            element={
+              <GuestLayout>
+                <ReadArticle />
               </GuestLayout>
             }
           />
