@@ -22,8 +22,8 @@ const ContentLayout = ({ inheritChild }) => {
           width={'100%'}
           spacing={2}
         >
-          <ButtonFolder>Kids</ButtonFolder>
-          <ButtonFolder right>Students</ButtonFolder>
+          <ButtonFolder>OWLETS</ButtonFolder>
+          <ButtonFolder right>OWLS</ButtonFolder>
         </Stack>
       </Box>
       <Box
