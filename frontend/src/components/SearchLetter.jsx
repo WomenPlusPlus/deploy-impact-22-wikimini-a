@@ -6,6 +6,7 @@ import ListItem from '@mui/material/ListItem'
 import Divider from '@mui/material/Divider'
 import { white, yellow } from '../theme/colors'
 import { Typography } from '@mui/material'
+import ReadArticle from './ReadArticle'
 
 const endpoint =
   'https://api.wikimedia.org/core/v1/wikipedia/en/search/title?q=earth&limit=5'
@@ -17,6 +18,8 @@ const params = {
 const SearchLetter = () => {
   const [searchResults, setSearchResults] = useState([])
   const { letter } = useParams()
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const [articleId, setArticleId] = useState();
 
   params.q = letter
 
@@ -53,14 +56,16 @@ const SearchLetter = () => {
         {searchResults.map(({ id, title }) => {
           return (
             <div key={id}>
-              <ListItem button>
+              <ListItem button onClick={() => {
+                setOpenDrawer(true);
+                setArticleId(id);
+              }}>
                 <Typography
                   sx={{
                     fontFamily: 'Inter',
                     fontStyle: 'normal',
                     fontWeight: 700,
                     fontSize: '24px',
-
                     textAlign: 'center',
                     color: white,
                     margin: '2rem',
@@ -75,6 +80,7 @@ const SearchLetter = () => {
           )
         })}
       </List>
+      <ReadArticle open={openDrawer} setOpenDrawer={setOpenDrawer} articleId={articleId} />
     </>
   )
 }
