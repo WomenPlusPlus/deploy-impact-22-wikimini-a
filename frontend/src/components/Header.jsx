@@ -1,10 +1,10 @@
 import logo from '../assets/logo.svg'
 import wikiminiLogo from '../assets/wikiminiLogo.svg'
-import { Box, Drawer, IconButton, List, ListItem } from '@mui/material'
+import { Box, Drawer, IconButton, List, ListItem, Avatar } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
 import {
-  //   AuthContainer,
+  AuthContainer,
   //   CreateAccount,
   HeaderContainer,
   //   Login,
@@ -16,7 +16,7 @@ import {
   LogoMenu,
   DividerMenu,
 } from '../styles/Header'
-import { white, green } from '../theme/colors'
+import { white, green, dark } from '../theme/colors'
 import { useNavigate } from 'react-router-dom'
 import { getRoutePath } from '../routes/route-utils'
 import { menuSideBarItems } from '../utils/menuSideBarItems'
@@ -71,6 +71,9 @@ const Header = () => {
         </Drawer>
       </MenuButtonContainer>
       <Logo src={logo} onClick={() => navigate(getRoutePath('HOME'))} />
+      <AuthContainer>
+        <Avatar variant="solid"  sx={{ bgcolor: dark }} />
+      </AuthContainer>
       {/* <AuthContainer>
                 <Login>Log in</Login>
                 <CreateAccount>Create an account</CreateAccount>
