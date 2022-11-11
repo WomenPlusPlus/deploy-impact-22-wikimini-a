@@ -37,7 +37,7 @@ const SearchLetter = () => {
     <>
       <Typography
         sx={{
-          fontFamily: 'Inter',
+          fontFamily: 'Futura',
           fontStyle: 'normal',
           fontWeight: 900,
           fontSize: '138px',
@@ -54,12 +54,15 @@ const SearchLetter = () => {
         {searchResults.map(({ id, title }) => {
           return (
             <div key={id}>
-              <ListItem button onClick={() => {
-                navigate(`/article/${id}`)
-              }}>
+              <ListItem
+                button
+                onClick={() => {
+                  navigate(`/article/${title}`)
+                }}
+              >
                 <Typography
                   sx={{
-                    fontFamily: 'Inter',
+                    fontFamily: 'Futura',
                     fontStyle: 'normal',
                     fontWeight: 700,
                     fontSize: '24px',

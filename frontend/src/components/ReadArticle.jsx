@@ -1,125 +1,196 @@
-/* eslint-disable react/jsx-key */
-import { Accordion, AccordionDetails, AccordionSummary, Drawer, Typography } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import {
+  Button,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+} from '@mui/material'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import ImageIcon from '@mui/icons-material/Image'
 import close from '../assets/close.svg'
-import { BottomContainer, MainContainer, TopContainer } from "../styles/ReadArticle";
-import { dark, white } from "../theme/colors";
-import { resultArticles } from "../utils/mockups";
-import edit from "../assets/edit.svg";
-import SearchResultContainer from "./SearchResultContainer";
-import arrowDown from "../assets/arrowDown.svg"
-import { useNavigate } from "react-router-dom";
+import edit from '../assets/edit.svg'
+import { green, white, darkBlue } from '../theme/colors'
+import {
+  BottomContainer,
+  Container,
+  Image,
+  CloseButton,
+  RoundedHeader,
+  ReadingLevelText,
+  LevelButtonsContainer,
+  CustomAccordion,
+  AccordionTitle,
+  AccordionContent,
+  EditImage,
+} from '../styles/ReadArticle'
+import { resultArticles } from '../utils/mockups'
+import SearchResultContainer from './SearchResultContainer'
 
 const ReadArticle = () => {
+  const [searchResult, setSearchResult] = useState([])
+  const [expandFirst, setExpandFirst] = useState(true)
+  const { id } = useParams()
+  const navigate = useNavigate()
 
-    // THIS LINE HAS TO BE REMOVED WHEN WE INTERGRATE THE API CALL
-    const id = 1;
-    // const { id } = useParams();
-    const navigate = useNavigate();
-    const [openDrawer, setOpenDrawer] = useState(false);
-    const [article, setArticle] = useState({});
-    // const [firstRelatedOpen, setFirstRelatedOpen] = useState(false);
-    // const [secondRelatedOpen, setSecondRelatedOpen] = useState(false);
+  const fetcher = async (path) => {
+    const response = await fetch('https://en.wikipedia.org/w/api.php' + path)
+    return await response.json()
+  }
 
-    useEffect(() => {
-        setArticle(resultArticles.find(item => item.id === id))
-        setOpenDrawer(true);
-    }, [])
+  useEffect(() => {
+    const getData = async () => {
+      const introEndpoint = `?origin=*&format=json&action=query&prop=extracts&exintro&explaintext&exsentences=2&titles=${id}`
+      const contentEndpoint = `?origin=*&format=json&action=query&prop=pageimages|extracts&exintro&explaintext&titles=${id}`
 
-    return(
-        <Drawer 
-        anchor="bottom"
-        open={openDrawer}
-        PaperProps={{
-            sx: {
-                width: '100%',
-                height: '100%',
-            }
-        }}
-        >
-            <TopContainer>
-                <Typography sx={{ fontWeight: '700', fontSize: '14px', color: dark, margin: 0 }}>Reading level:</Typography>
-                <img style={{ height: '20px', weight: '20px' }} src={close} onClick={() => {
-                    setOpenDrawer(false)
-                    navigate('/articles')
-                }} />
-            </TopContainer>
-            <MainContainer>
+      try {
+        const [introData, contentData] = await Promise.all([
+          fetcher(introEndpoint),
+          fetcher(contentEndpoint),
+        ])
+
+        const intro = Object.values(introData.query.pages).map(
+          ({ title, pageid, thumbnail, extract }) => ({
+            extract,
+          })
+        )
+        const finalData = Object.values(contentData.query.pages).map(
+          ({ title, pageid, thumbnail, extract }) => ({
+            pageid,
+            title,
+            extract,
+            image: thumbnail ? thumbnail.source : ImageIcon,
+            intro: intro[0].extract,
+          })
+        )
+        setSearchResult(finalData)
+      } catch (error) {
+        throw new Error(error)
+      }
+    }
+
+    getData()
+  }, [id])
+
+  if (searchResult.length) {
+    console.log(searchResult, 'search')
+  }
+
+  return (
+    <div style={{ background: white }}>
+      {searchResult.map(({ pageid, title, image, intro, extract }) => {
+        return (
+          <div key={pageid}>
+            <RoundedHeader title={title}>
+              <ReadingLevelText>Reading level:</ReadingLevelText>
+              <LevelButtonsContainer>
+                <Button
+                  sx={{
+                    minWidth: '30px',
+                    lineHeight: '2px',
+                    padding: '8px',
+                    marginRight: '4px',
+                    background: green,
+                  }}
+                  variant='contained'
+                >
+                  1
+                </Button>
+                <Button
+                  sx={{
+                    minWidth: '30px',
+                    lineHeight: '2px',
+                    padding: '8px',
+                    marginLeft: '4px',
+                    color: darkBlue,
+                  }}
+                  variant='text'
+                >
+                  2
+                </Button>
+              </LevelButtonsContainer>
+              <CloseButton
+                src={close}
+                onClick={() => {
+                  navigate('/articles')
+                }}
+              />
+            </RoundedHeader>
+            <Container>
+              <Image src={image} />
+              <CustomAccordion
+                expanded={expandFirst}
+                onChange={() => setExpandFirst(!expandFirst)}
+              >
+                <AccordionSummary
+                  expandIcon={
+                    <ExpandMoreIcon
+                      sx={{
+                        background: white,
+                        borderRadius: '50%',
+                        color: green,
+                      }}
+                    />
+                  }
+                >
+                  <AccordionTitle>Introduction</AccordionTitle>
+                </AccordionSummary>
+                <AccordionDetails aria-controls='content' id='content'>
+                  <AccordionContent>{intro}</AccordionContent>
+                </AccordionDetails>
+              </CustomAccordion>
+              <CustomAccordion>
+                <AccordionSummary
+                  expandIcon={
+                    <ExpandMoreIcon
+                      sx={{
+                        background: white,
+                        borderRadius: '50%',
+                        color: green,
+                      }}
+                    />
+                  }
+                >
+                  <AccordionTitle>Content</AccordionTitle>
+                </AccordionSummary>
+                <AccordionDetails aria-controls='content' id='content'>
+                  <AccordionContent>{extract}</AccordionContent>
+                </AccordionDetails>
+              </CustomAccordion>
+              <EditImage src={edit} />
+              <BottomContainer>
                 <Typography
-                sx={{
-                    fontWeight: '700',
-                    fontSize: '30px',
-                    textAlign: 'center',
-                    color: '#2F2E41',
-                    marginTop: '25px',
-                    marginBottom: '150px'
-                }}>
-                    {article.title}
-                </Typography>
-                <div>
-                    {
-                        article.content && Object.keys(article.content).map((key) => (
-                            <Accordion
-                            key={key}
-                            sx={{
-                                boxShadow: 'none'
-                            }}
-                            >
-                                <AccordionSummary
-                                expandIcon={<img style={{ height: '28px' }} src={arrowDown} />}
-                                id={article.id}
-                                sx={{
-                                    backgroundColor: '#0AAAAA',
-                                    borderRadius: '30px',
-                                    color: white,
-                                    textTransform: 'uppercase',
-                                    fontWeight: '400',
-                                    fontSize: '16px',
-                                    marginBottom: '25px'
-                                }}
-                                >
-                                <Typography>{key}</Typography>
-                                </AccordionSummary>
-                                <AccordionDetails>
-                                <Typography sx={{
-                                    fontWeight: '500',
-                                    fontSize: '24px',
-                                    color: '#2F2E41',
-                                }}>
-                                    {article.content[key]}
-                                </Typography>
-                                </AccordionDetails>
-                            </Accordion>
-                        ))
-                    }
-                </div>
-                <img src={edit} />
-            </MainContainer>
-            <BottomContainer>
-                <Typography
-                sx={{
+                  sx={{
                     fontWeight: '700',
                     fontSize: '20px',
                     textAlign: 'center',
                     color: white,
-                    marginTop: '39px'
-                }}>
-                    Related Articles & Activities:
+                    marginTop: '39px',
+                  }}
+                >
+                  Related Articles & Activities:
                 </Typography>
-                <div onClick={() => {
+                <div
+                  onClick={() => {
                     navigate(`/article/${resultArticles[0].id}`)
-                }}>
-                    <SearchResultContainer item={resultArticles[0]} />
+                  }}
+                >
+                  <SearchResultContainer item={resultArticles[0]} />
                 </div>
-                <div onClick={() => {
+                <div
+                  onClick={() => {
                     navigate(`/article/${resultArticles[1].id}`)
-                }}>
-                    <SearchResultContainer item={resultArticles[1
-                    ]} />
+                  }}
+                >
+                  <SearchResultContainer item={resultArticles[1]} />
                 </div>
-            </BottomContainer>
-        </Drawer>
-    );
+              </BottomContainer>
+            </Container>
+          </div>
+        )
+      })}
+    </div>
+  )
 }
 
-export default ReadArticle;
+export default ReadArticle

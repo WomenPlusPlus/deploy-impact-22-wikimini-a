@@ -18,7 +18,7 @@ export const WikiminiRoutes = {
     path: '/articles',
   },
   ARTICLE: {
-    path: '/article/:id'
+    path: '/article/:id',
   },
   SEARCH: {
     path: '/search/:item',
@@ -28,8 +28,5 @@ export const WikiminiRoutes = {
   },
   SEARCH_CATEGORY: {
     path: '/search-category/:category',
-  },
-  PAGE: {
-    path: '/page/:title',
   },
 }
