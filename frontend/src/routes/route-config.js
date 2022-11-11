@@ -21,12 +21,15 @@ export const WikiminiRoutes = {
     path: '/article/:id'
   },
   SEARCH: {
-    path: '/search/:item'
+    path: '/search/:item',
   },
   SEARCH_LETTER: {
     path: '/search-letter/:letter',
   },
   SEARCH_CATEGORY: {
     path: '/search-category/:category',
+  },
+  PAGE: {
+    path: '/page/:title',
   },
 }

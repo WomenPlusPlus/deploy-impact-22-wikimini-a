@@ -3,7 +3,7 @@ export const menuSideBarItems = [
         text: 'Owlets (age 6-10)'       
     },
     { 
-        text: 'Owlets (age 11-14)' 
+        text: 'Owls (age 11-14)' 
     },
     {
         text: 'My account'
