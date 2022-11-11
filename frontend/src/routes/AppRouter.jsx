@@ -33,9 +33,7 @@ export const AppRouter = () => {
           <Route
             path={getRoutePath('ARTICLE')}
             element={
-              <GuestLayout>
-                <ReadArticle />
-              </GuestLayout>
+              <ReadArticle />
             }
           />
           <Route

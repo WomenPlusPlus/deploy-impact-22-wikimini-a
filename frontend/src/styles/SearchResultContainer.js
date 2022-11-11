@@ -3,7 +3,7 @@ import { lightGrey } from '../theme/colors'
 
 export const Container = styled('div')({
     backgroundColor: lightGrey,
-    width: '90%',
+    width: '90vw',
     height: '57px',
     marginTop:'16px',
     borderRadius: '10px',

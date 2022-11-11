@@ -8,12 +8,14 @@ import { resultArticles } from "../utils/mockups";
 import edit from "../assets/edit.svg";
 import SearchResultContainer from "./SearchResultContainer";
 import arrowDown from "../assets/arrowDown.svg"
+import { useNavigate } from "react-router-dom";
 
 const ReadArticle = () => {
 
     // THIS LINE HAS TO BE REMOVED WHEN WE INTERGRATE THE API CALL
     const id = 1;
     // const { id } = useParams();
+    const navigate = useNavigate();
     const [openDrawer, setOpenDrawer] = useState(false);
     const [article, setArticle] = useState({});
     // const [firstRelatedOpen, setFirstRelatedOpen] = useState(false);
@@ -39,6 +41,7 @@ const ReadArticle = () => {
                 <Typography sx={{ fontWeight: '700', fontSize: '14px', color: dark, margin: 0 }}>Reading level:</Typography>
                 <img style={{ height: '20px', weight: '20px' }} src={close} onClick={() => {
                     setOpenDrawer(false)
+                    navigate('/articles')
                 }} />
             </TopContainer>
             <MainContainer>
@@ -55,8 +58,9 @@ const ReadArticle = () => {
                 </Typography>
                 <div>
                     {
-                        Object.keys(article.content).map((key) => (
+                        article.content && Object.keys(article.content).map((key) => (
                             <Accordion
+                            key={key}
                             sx={{
                                 boxShadow: 'none'
                             }}
@@ -102,8 +106,17 @@ const ReadArticle = () => {
                 }}>
                     Related Articles & Activities:
                 </Typography>
-                <SearchResultContainer item={resultArticles[0]} />
-                <SearchResultContainer item={resultArticles[1]} />
+                <div onClick={() => {
+                    navigate(`/article/${resultArticles[0].id}`)
+                }}>
+                    <SearchResultContainer item={resultArticles[0]} />
+                </div>
+                <div onClick={() => {
+                    navigate(`/article/${resultArticles[1].id}`)
+                }}>
+                    <SearchResultContainer item={resultArticles[1
+                    ]} />
+                </div>
             </BottomContainer>
         </Drawer>
     );
