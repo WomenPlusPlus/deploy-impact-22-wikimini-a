@@ -2,9 +2,14 @@ import PropTypes from 'prop-types'
 import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
 import { ButtonFolder } from '../../styles/Home'
-import { green } from '../../theme/colors'
+import { dark, green } from '../../theme/colors'
+import { useContext } from 'react'
+import ActiveContext from '../../context'
 
 const ContentLayout = ({ inheritChild }) => {
+  
+  const { active, setActive } = useContext(ActiveContext);
+
   return (
     <Box
       sx={{
@@ -22,15 +27,15 @@ const ContentLayout = ({ inheritChild }) => {
           width={'100%'}
           spacing={2}
         >
-          <ButtonFolder>OWLETS</ButtonFolder>
-          <ButtonFolder right>OWLS</ButtonFolder>
+          <ButtonFolder onClick={() => setActive('owlets')}>OWLETS</ButtonFolder>
+          <ButtonFolder right onClick={() => setActive('owls')}>OWLS</ButtonFolder>
         </Stack>
       </Box>
       <Box
         sx={{
           height: 'calc(100vh - 108px)',
           borderRadius: '2% 2% 0px 0px',
-          backgroundColor: green,
+          backgroundColor: `${active === 'owlets' ? green : dark}`,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',

@@ -1,6 +1,6 @@
 import { blue, white } from '../theme/colors';
 
-export const homeBoxesData = [
+export const homeBoxesDataOwlets = [
   {
     title: 'Articles',
     image: require('../assets/homework.png'),
@@ -20,8 +20,25 @@ export const homeBoxesData = [
   {
     title: 'Be a writer',
     image: require('../assets/studySet.png'),
-    id: 'writter',
+    id: 'writer',
     textColor: '#156081',
     backgroundColor: '#FDC453',
+  },
+]
+
+export const homeBoxesDataOwls = [
+  {
+    image: require('../assets/articlesOwls.png'),
+    id: 'article',
+    route: 'articles',
+  },
+  { image: require('../assets/activitiesOwls.png'), id: 'activity' },
+  {
+    image: require('../assets/dictionaryOwls.png'),
+    id: 'dictionary',
+  },
+  {
+    image: require('../assets/writerOwls.png'),
+    id: 'writer',
   },
 ]

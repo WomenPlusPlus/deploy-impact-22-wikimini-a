@@ -3,12 +3,15 @@ import { getRoutePath } from '../routes/route-utils'
 import Grid from '@mui/material/Grid'
 import Grow from '@mui/material/Grow'
 import SearchBar from './SearchBar'
-import { homeBoxesData } from '../utils/homeBoxesData'
+import { homeBoxesDataOwlets, homeBoxesDataOwls } from '../utils/homeBoxesData'
 import { ImageInBox, TextInBox, PaperBox } from '../styles/Home'
+import { useContext } from 'react'
+import ActiveContext from '../context'
 
 const Home = () => {
   const navigate = useNavigate()
-
+  const { active } = useContext(ActiveContext);
+  
   return (
     <>
       <SearchBar />
@@ -17,30 +20,55 @@ const Home = () => {
         container
         spacing={1}
       >
-        <Grid item xs={12}>
-          <Grid container justifyContent='center' spacing={2}>
-            {homeBoxesData.map(({ id, title, image, textColor, backgroundColor }, index) => (
-              <Grow
-                key={id}
-                in={true}
-                style={{ transformOrigin: '0 0 0' }}
-                timeout={600 * (index + 1)}
-              >
-                <Grid
-                  item
-                  onClick={() =>
-                    id === 'article' ? navigate(getRoutePath('ARTICLES')) : null
-                  }
+        { active === 'owlets' ? 
+        
+          <Grid item xs={12}>
+            <Grid container justifyContent='center' spacing={2}>
+              {homeBoxesDataOwlets.map(({ id, title, image, textColor, backgroundColor }, index) => (
+                <Grow
+                  key={id}
+                  in={true}
+                  style={{ transformOrigin: '0 0 0' }}
+                  timeout={600 * (index + 1)}
                 >
-                  <PaperBox backgroundcolor={backgroundColor} elevation={3}>
-                    <TextInBox textcolor={textColor}>{title}</TextInBox>
-                    <ImageInBox src={image} alt={title} id={id} />
-                  </PaperBox>
-                </Grid>
-              </Grow>
-            ))}
-          </Grid>
-        </Grid>
+                  <Grid
+                    item
+                    onClick={() =>
+                      id === 'article' ? navigate(getRoutePath('ARTICLES')) : null
+                    }
+                  >
+                    <PaperBox backgroundcolor={backgroundColor} elevation={3}>
+                      <TextInBox textcolor={textColor}>{title}</TextInBox>
+                      <ImageInBox src={image} alt={title} id={id} />
+                    </PaperBox>
+                  </Grid>
+                </Grow>
+              ))}
+            </Grid>
+          </Grid> : 
+          
+          <Grid item xs={12}>
+            <Grid container justifyContent='center' spacing={2}>
+              {homeBoxesDataOwls.map(({ id, image }, index) => (
+                <Grow
+                  key={id}
+                  in={true}
+                  style={{ transformOrigin: '0 0 0' }}
+                  timeout={600 * (index + 1)}
+                >
+                  <Grid
+                    item
+                    onClick={() =>
+                      id === 'article' ? navigate(getRoutePath('ARTICLES')) : null
+                    }
+                  >
+                    <img src={image} />
+                  </Grid>
+                </Grow>
+              ))}
+            </Grid>
+          </Grid>}
+
       </Grid>
     </>
   )

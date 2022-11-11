@@ -1,15 +1,17 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Paper from '@mui/material/Paper'
 import InputBase from '@mui/material/InputBase'
 import IconButton from '@mui/material/IconButton'
 import SearchIcon from '@mui/icons-material/Search'
-import { lightGreen } from '../theme/colors'
+import { lightGreen, grey } from '../theme/colors'
+import ActiveContext from '../context'
 
 export default function SearchBar() {
   const navigate = useNavigate()
   const [searchInput, setSearchInput] = useState('')
+  const { active } = useContext(ActiveContext)
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -40,7 +42,7 @@ export default function SearchBar() {
         height: '50px',
         width: '100%',
         maxWidth: '600px',
-        background: lightGreen,
+        background: `${active === 'owlets' ? lightGreen : grey}`,
         borderRadius: '33.3382px',
       }}
     >

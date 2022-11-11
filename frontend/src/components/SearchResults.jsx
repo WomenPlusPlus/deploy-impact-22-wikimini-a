@@ -14,7 +14,7 @@ import {
   TextInBoxSearch,
 } from '../styles/SearchResults'
 import { ImageInBox, PaperBox, TextInBox } from '../styles/Home'
-import { homeBoxesData } from '../utils/homeBoxesData'
+import { homeBoxesDataOwlets } from '../utils/homeBoxesData'
 
 const SearchResults = () => {
   const [searchResult, setSearchResult] = useState([])
@@ -131,20 +131,20 @@ const SearchResults = () => {
             bottom: 50,
           }}
         >
-          <PaperBox backgroundcolor={homeBoxesData[2].backgroundColor}>
+          <PaperBox backgroundcolor={homeBoxesDataOwlets[2].backgroundColor}>
             <TextInBox>&nbsp;</TextInBox>
             <ImageInBox
-              src={homeBoxesData[2].image}
-              alt={homeBoxesData[2].title}
-              id={homeBoxesData[2].id}
+              src={homeBoxesDataOwlets[2].image}
+              alt={homeBoxesDataOwlets[2].title}
+              id={homeBoxesDataOwlets[2].id}
             />
           </PaperBox>
-          <PaperBox backgroundcolor={homeBoxesData[3].backgroundColor}>
+          <PaperBox backgroundcolor={homeBoxesDataOwlets[3].backgroundColor}>
             <TextInBox>&nbsp;</TextInBox>
             <ImageInBox
-              src={homeBoxesData[3].image}
-              alt={homeBoxesData[3].title}
-              id={homeBoxesData[3].id}
+              src={homeBoxesDataOwlets[3].image}
+              alt={homeBoxesDataOwlets[3].title}
+              id={homeBoxesDataOwlets[3].id}
             />
           </PaperBox>
         </Box>
