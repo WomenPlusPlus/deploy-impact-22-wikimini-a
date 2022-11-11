@@ -72,10 +72,6 @@ const ReadArticle = () => {
     getData()
   }, [id])
 
-  if (searchResult.length) {
-    console.log(searchResult, 'search')
-  }
-
   return (
     <div style={{ background: white }}>
       {searchResult.map(({ pageid, title, image, intro, extract }) => {
