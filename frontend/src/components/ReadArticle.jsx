@@ -7,7 +7,6 @@ import {
   Typography,
 } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import ImageIcon from '@mui/icons-material/Image'
 import close from '../assets/close.svg'
 import edit from '../assets/edit.svg'
 import { green, white, darkBlue } from '../theme/colors'
@@ -59,7 +58,7 @@ const ReadArticle = () => {
             pageid,
             title,
             extract,
-            image: thumbnail ? thumbnail.source : ImageIcon,
+            image: thumbnail ? thumbnail.source : null,
             intro: intro[0].extract,
           })
         )
