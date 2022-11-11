@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom'
 /* eslint-disable react/prop-types */
 import { Container, Image } from '../styles/SearchResultContainer'
 import { blue, green, red } from '../theme/colors'
 import PropTypes from 'prop-types'
 
 const SearchResultContainer = ({ item }) => {
+  const navigate = useNavigate()
   const categoryColor = (item) => {
     return item.category === 'article: '
       ? green
@@ -13,7 +15,11 @@ const SearchResultContainer = ({ item }) => {
   }
 
   return (
-    <Container>
+    <Container
+      onClick={() => {
+        navigate(`/article/${item.title}`)
+      }}
+    >
       <Image borderColor={categoryColor(item)} src={item.image} />
       <p>
         <span

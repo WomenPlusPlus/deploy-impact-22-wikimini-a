@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import Divider from '@mui/material/Divider'
@@ -23,6 +23,7 @@ const params = {
 const SearchCategory = () => {
   const [searchResults, setSearchResults] = useState([])
   const { category } = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getData = async () => {
@@ -56,11 +57,16 @@ const SearchCategory = () => {
       <List sx={{ height: '80%', width: '96%', overflow: 'auto' }}>
         {searchResults.map(({ title }, index) => {
           return (
-            <div key={index}>
+            <div
+              key={index}
+              onClick={() => {
+                navigate(`/article/${title}`)
+              }}
+            >
               <ListItem button>
                 <Typography
                   sx={{
-                    fontFamily: 'Inter',
+                    fontFamily: 'Futura',
                     fontStyle: 'normal',
                     fontWeight: 700,
                     fontSize: '24px',

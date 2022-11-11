@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
@@ -17,6 +17,7 @@ const params = {
 const SearchLetter = () => {
   const [searchResults, setSearchResults] = useState([])
   const { letter } = useParams()
+  const navigate = useNavigate()
 
   params.q = letter
 
@@ -36,7 +37,7 @@ const SearchLetter = () => {
     <>
       <Typography
         sx={{
-          fontFamily: 'Inter',
+          fontFamily: 'Futura',
           fontStyle: 'normal',
           fontWeight: 900,
           fontSize: '138px',
@@ -53,14 +54,18 @@ const SearchLetter = () => {
         {searchResults.map(({ id, title }) => {
           return (
             <div key={id}>
-              <ListItem button>
+              <ListItem
+                button
+                onClick={() => {
+                  navigate(`/article/${title}`)
+                }}
+              >
                 <Typography
                   sx={{
-                    fontFamily: 'Inter',
+                    fontFamily: 'Futura',
                     fontStyle: 'normal',
                     fontWeight: 700,
                     fontSize: '24px',
-
                     textAlign: 'center',
                     color: white,
                     margin: '2rem',

@@ -19,7 +19,7 @@ const Articles = () => {
     <>
       <Typography
         sx={{
-          fontFamily: 'Inter',
+          fontFamily: 'Futura',
           fontStyle: 'normal',
           fontWeight: 700,
           fontSize: '38px',
@@ -85,7 +85,7 @@ const Articles = () => {
                       <Typography
                         sx={{
                           width: '100%',
-                          fontFamily: 'Inter',
+                          fontFamily: 'Futura',
                           fontStyle: 'normal',
                           fontWeight: 700,
                           fontSize: '18px',

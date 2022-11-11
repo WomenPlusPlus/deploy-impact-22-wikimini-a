@@ -19,6 +19,7 @@ import { homeBoxesData } from '../utils/homeBoxesData'
 const SearchResults = () => {
   const [searchResult, setSearchResult] = useState([])
   const { item } = useParams()
+
   useEffect(() => {
     const getData = async () => {
       const encodedEndpoint = `https://en.wikipedia.org/w/api.php?origin=*&format=json&action=query&prop=pageimages|extracts&titles=art&explaintext=&exintro&titles=${item}`
@@ -94,7 +95,7 @@ const SearchResults = () => {
         )}
         <Typography
           sx={{
-            fontFamily: 'Inter',
+            fontFamily: 'Futura',
             fontWeight: 700,
             fontSize: '22px',
             lineHeight: '26px',
