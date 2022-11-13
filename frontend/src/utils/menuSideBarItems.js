@@ -1,20 +1,26 @@
 export const menuSideBarItems = [
     {
-        text: 'Owlets (age 6-10)'       
+        text: 'Owlets (age 6-10)',
+        url: 'HOME'       
     },
     { 
-        text: 'Owls (age 11-14)' 
+        text: 'Owls (age 11-14)',
+        url: 'HOME' 
     },
     {
-        text: 'My account'
+        text: 'My account',
+        url: ''
     },
     {
-        text: 'My contributions'
+        text: 'My contributions',
+        url: ''
     },
     {
-        text: 'Help'
+        text: 'Help',
+        url: ''
     },
     {
-        text: 'Change language'
+        text: 'Change language',
+        url: 'LANGUAGE'
     }
   ]

@@ -59,7 +59,7 @@ const Header = () => {
                 {menuSideBarItems.map((item) => (
                     <Box key={item.text}>
                         <ListItem sx={{ padding: '0 0 0 0.5em'}}>
-                            <MenuIconSideBar>
+                            <MenuIconSideBar onClick={() => navigate(getRoutePath(item.url))}>
                                 {item.text}
                             </MenuIconSideBar>
                         </ListItem>
