@@ -1,6 +1,6 @@
 export const WikiminiRoutes = {
   HOME: {
-    path: '/',
+    path: '/home',
   },
   LOGIN: {
     path: '/login',
@@ -29,4 +29,7 @@ export const WikiminiRoutes = {
   SEARCH_CATEGORY: {
     path: '/search-category/:category',
   },
+  LANGUAGE: {
+    path: '/'
+  }
 }

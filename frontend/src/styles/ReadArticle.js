@@ -47,7 +47,7 @@ export const RoundedHeader = styled('section')((props) => ({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: '-0.25em',
-    content: `'${props.title}'`,
+    content: `'${props}'`,
     borderTopLeftRadius: '50% 100%',
     borderTopRightRadius: '50% 100%',
     position: 'absolute',

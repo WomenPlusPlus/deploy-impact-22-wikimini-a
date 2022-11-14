@@ -7,6 +7,7 @@ import SearchCategory from '../components/SearchCategory'
 import { getRoutePath } from './route-utils'
 import SearchResults from '../components/SearchResults'
 import ReadArticle from '../components/ReadArticle'
+import Language from '../components/Language'
 
 export const AppRouter = () => {
   return (
@@ -53,6 +54,12 @@ export const AppRouter = () => {
               <GuestLayout>
                 <SearchCategory />
               </GuestLayout>
+            }
+          />
+          <Route
+            path={getRoutePath('LANGUAGE')}
+            element={
+              <Language/>
             }
           />
           {/* Authenticated routes */}
