@@ -9,6 +9,7 @@ import SearchBar from './SearchBar'
 import { green, white, blue, lightBlue } from '../theme/colors'
 import { Typography } from '@mui/material'
 import { articlesCategories } from '../utils/articlesCategories'
+import backButton from '../assets/backButton.svg'
 
 const Articles = () => {
   const navigate = useNavigate()
@@ -17,6 +18,7 @@ const Articles = () => {
   }
   return (
     <>
+      <img src={backButton} style={{width: '22px', position: 'absolute', left: '30px', top: '210px', cursor: 'pointer'}} onClick={() => navigate(-1)} />
       <Typography
         sx={{
           fontFamily: 'Futura',
