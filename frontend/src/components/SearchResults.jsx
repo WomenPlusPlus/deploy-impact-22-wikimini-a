@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import SearchBar from './SearchBar'
 import { white } from '../theme/colors'
@@ -20,6 +20,7 @@ import ActiveContext from '../context'
 const SearchResults = () => {
   const [searchResult, setSearchResult] = useState([])
   const { item } = useParams()
+  const navigate = useNavigate()
   const { active } = useContext(ActiveContext)
 
   useEffect(() => {
@@ -36,7 +37,15 @@ const SearchResults = () => {
             image: thumbnail ? thumbnail.source : null,
           })
         )
-        setSearchResult(results)
+        if (localStorage.getItem('createdActivity')) {
+          const activityResults = JSON.parse(
+            localStorage.getItem('createdActivity')
+          )
+          results.push(activityResults)
+          setSearchResult(results)
+        } else {
+          setSearchResult(results)
+        }
       } catch (error) {
         throw new Error(error)
       }
@@ -65,7 +74,7 @@ const SearchResults = () => {
         {searchResult.length ? (
           <>
             {searchResult.map((item) => (
-              <SearchResultContainer item={item} key={item.id} />
+              <SearchResultContainer item={item} key={item.pageid} />
             ))}
             <Typography
               sx={{
@@ -111,7 +120,11 @@ const SearchResults = () => {
         <Grid container justifyContent='center' spacing={1}>
           {searchBoxesData.map(
             ({ id, title, image, textColor, backgroundColor }) => (
-              <Grid item key={id}>
+              <Grid
+                item
+                key={id}
+                onClick={() => navigate(`/activity/create/${item}`)}
+              >
                 <PaperBoxSearch backgroundcolor={backgroundColor}>
                   <TextInBoxSearch textcolor={textColor}>
                     {title}
@@ -123,61 +136,62 @@ const SearchResults = () => {
           )}
         </Grid>
       </Box>
-      {resultArticles.length === 0 && (
-        
-        active === 'owlets' ? <Box
-        sx={{
-          display: 'flex',
-          width: '100%',
-          justifyContent: 'space-between',
-          position: 'relative',
-          bottom: 50,
-        }}
-      >
-        <PaperBox backgroundcolor={homeBoxesDataOwlets[2].backgroundColor}>
-          <TextInBox>&nbsp;</TextInBox>
-          <ImageInBox
-            src={homeBoxesDataOwlets[2].image}
-            alt={homeBoxesDataOwlets[2].title}
-            id={homeBoxesDataOwlets[2].id}
-          />
-        </PaperBox>
-        <PaperBox backgroundcolor={homeBoxesDataOwlets[3].backgroundColor}>
-          <TextInBox>&nbsp;</TextInBox>
-          <ImageInBox
-            src={homeBoxesDataOwlets[3].image}
-            alt={homeBoxesDataOwlets[3].title}
-            id={homeBoxesDataOwlets[3].id}
-          />
-        </PaperBox>
-      </Box> :
-      <Box
-      sx={{
-        display: 'flex',
-        width: '100%',
-        justifyContent: 'space-between',
-        position: 'relative',
-        bottom: 50,
-      }}
-    >
-      <PaperBox backgroundcolor={homeBoxesDataOwls[2].backgroundColor}>
-        <TextInBox>&nbsp;</TextInBox>
-        <ImageInBox
-          src={homeBoxesDataOwls[2].image}
-          alt={homeBoxesDataOwls[2].title}
-          id={homeBoxesDataOwls[2].id}
-        />
-      </PaperBox>
-      <PaperBox backgroundcolor={homeBoxesDataOwls[3].backgroundColor}>
-        <TextInBox>&nbsp;</TextInBox>
-        <ImageInBox
-          src={homeBoxesDataOwls[3].image}
-          alt={homeBoxesDataOwls[3].title}
-          id={homeBoxesDataOwls[3].id}
-        />
-      </PaperBox>
-    </Box>
-      )}
+      {resultArticles.length === 0 &&
+        (active === 'owlets' ? (
+          <Box
+            sx={{
+              display: 'flex',
+              width: '100%',
+              justifyContent: 'space-between',
+              position: 'relative',
+              bottom: 50,
+            }}
+          >
+            <PaperBox backgroundcolor={homeBoxesDataOwlets[2].backgroundColor}>
+              <TextInBox>&nbsp;</TextInBox>
+              <ImageInBox
+                src={homeBoxesDataOwlets[2].image}
+                alt={homeBoxesDataOwlets[2].title}
+                id={homeBoxesDataOwlets[2].id}
+              />
+            </PaperBox>
+            <PaperBox backgroundcolor={homeBoxesDataOwlets[3].backgroundColor}>
+              <TextInBox>&nbsp;</TextInBox>
+              <ImageInBox
+                src={homeBoxesDataOwlets[3].image}
+                alt={homeBoxesDataOwlets[3].title}
+                id={homeBoxesDataOwlets[3].id}
+              />
+            </PaperBox>
+          </Box>
+        ) : (
+          <Box
+            sx={{
+              display: 'flex',
+              width: '100%',
+              justifyContent: 'space-between',
+              position: 'relative',
+              bottom: 50,
+            }}
+          >
+            <PaperBox backgroundcolor={homeBoxesDataOwls[2].backgroundColor}>
+              <TextInBox>&nbsp;</TextInBox>
+              <ImageInBox
+                src={homeBoxesDataOwls[2].image}
+                alt={homeBoxesDataOwls[2].title}
+                id={homeBoxesDataOwls[2].id}
+              />
+            </PaperBox>
+            <PaperBox backgroundcolor={homeBoxesDataOwls[3].backgroundColor}>
+              <TextInBox>&nbsp;</TextInBox>
+              <ImageInBox
+                src={homeBoxesDataOwls[3].image}
+                alt={homeBoxesDataOwls[3].title}
+                id={homeBoxesDataOwls[3].id}
+              />
+            </PaperBox>
+          </Box>
+        ))}
     </>
   )
 }
