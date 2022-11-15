@@ -30,6 +30,12 @@ export const WikiminiRoutes = {
     path: '/search-category/:category',
   },
   LANGUAGE: {
-    path: '/'
-  }
+    path: '/',
+  },
+  CREATE_ACTIVITY: {
+    path: '/activity/create/:name',
+  },
+  WRITER: {
+    path: '/writer',
+  },
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import SearchBar from './SearchBar'
 import { white } from '../theme/colors'
@@ -19,6 +19,7 @@ import { homeBoxesDataOwlets } from '../utils/homeBoxesData'
 const SearchResults = () => {
   const [searchResult, setSearchResult] = useState([])
   const { item } = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getData = async () => {
@@ -34,7 +35,15 @@ const SearchResults = () => {
             image: thumbnail ? thumbnail.source : null,
           })
         )
-        setSearchResult(results)
+        if (localStorage.getItem('createdActivity')) {
+          const activityResults = JSON.parse(
+            localStorage.getItem('createdActivity')
+          )
+          results.push(activityResults)
+          setSearchResult(results)
+        } else {
+          setSearchResult(results)
+        }
       } catch (error) {
         throw new Error(error)
       }
@@ -63,7 +72,7 @@ const SearchResults = () => {
         {searchResult.length ? (
           <>
             {searchResult.map((item) => (
-              <SearchResultContainer item={item} key={item.id} />
+              <SearchResultContainer item={item} key={item.pageid} />
             ))}
             <Typography
               sx={{
@@ -109,7 +118,11 @@ const SearchResults = () => {
         <Grid container justifyContent='center' spacing={1}>
           {searchBoxesData.map(
             ({ id, title, image, textColor, backgroundColor }) => (
-              <Grid item key={id}>
+              <Grid
+                item
+                key={id}
+                onClick={() => navigate(`/activity/create/${item}`)}
+              >
                 <PaperBoxSearch backgroundcolor={backgroundColor}>
                   <TextInBoxSearch textcolor={textColor}>
                     {title}

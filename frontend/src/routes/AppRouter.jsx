@@ -8,6 +8,8 @@ import { getRoutePath } from './route-utils'
 import SearchResults from '../components/SearchResults'
 import ReadArticle from '../components/ReadArticle'
 import Language from '../components/Language'
+import CreateActivity from '../components/CreateActivity'
+import Writer from '../components/Writer'
 
 export const AppRouter = () => {
   return (
@@ -33,6 +35,14 @@ export const AppRouter = () => {
           />
           <Route path={getRoutePath('ARTICLE')} element={<ReadArticle />} />
           <Route
+            path={getRoutePath('WRITER')}
+            element={
+              <GuestLayout>
+                <Writer />
+              </GuestLayout>
+            }
+          />
+          <Route
             path={getRoutePath('SEARCH')}
             element={
               <GuestLayout>
@@ -57,11 +67,10 @@ export const AppRouter = () => {
             }
           />
           <Route
-            path={getRoutePath('LANGUAGE')}
-            element={
-              <Language/>
-            }
+            path={getRoutePath('CREATE_ACTIVITY')}
+            element={<CreateActivity />}
           />
+          <Route path={getRoutePath('LANGUAGE')} element={<Language />} />
           {/* Authenticated routes */}
         </Routes>
       </div>
