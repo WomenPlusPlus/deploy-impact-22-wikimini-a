@@ -22,7 +22,13 @@ const Language = () => {
               sx={{ 
                 width: '29%',
                 maxWidth: '120px', 
+<<<<<<< HEAD
                 height: '44%'
+=======
+                height: '44%', 
+                marginLeft:'0.5vw', 
+                marginTop: '26vh'
+>>>>>>> f2c2a9d1fc97383cebbc99bd4d2e58d1c7ae30b9
               }} 
               src={minionLeft}
             ></Image>
