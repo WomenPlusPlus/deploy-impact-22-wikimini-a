@@ -7,6 +7,7 @@ import Divider from '@mui/material/Divider'
 import { white, yellow } from '../theme/colors'
 import { Typography } from '@mui/material'
 import backButton from '../assets/backButton.svg'
+import { getRoutePath } from '../routes/route-utils'
 
 const endpoint =
   'https://api.wikimedia.org/core/v1/wikipedia/en/search/title?q=earth&limit=5'
@@ -36,8 +37,7 @@ const SearchLetter = () => {
 
   return (
     <>
-    <img src={backButton} style={{width: '22px', position: 'absolute', left: '30px', top: '210px', cursor: 'pointer'}} onClick={() => navigate(-1)} />
-      
+    <img src={backButton} style={{width: '22px', position: 'absolute', left: '30px', top: '210px', cursor: 'pointer'}} onClick={() => navigate(getRoutePath('HOME'))} />
       <Typography
         sx={{
           fontFamily: 'Futura',

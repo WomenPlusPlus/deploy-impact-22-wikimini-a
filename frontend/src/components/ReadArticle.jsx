@@ -107,7 +107,7 @@ const ReadArticle = () => {
               <CloseButton
                 src={close}
                 onClick={() => {
-                  navigate('/articles')
+                  navigate(-1)
                 }}
               />
             </RoundedHeader>

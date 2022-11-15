@@ -27,7 +27,7 @@ export const WikiminiRoutes = {
     path: '/search-letter/:letter',
   },
   SEARCH_CATEGORY: {
-    path: '/search-category/:category',
+    path: '/search-category/:type/:category',
   },
   LANGUAGE: {
     path: '/',
