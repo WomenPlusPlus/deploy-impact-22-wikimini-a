@@ -38,4 +38,7 @@ export const WikiminiRoutes = {
   WRITER: {
     path: '/writer',
   },
+  CONGRATULATIONS: {
+    path: '/congratulations',
+  },
 }

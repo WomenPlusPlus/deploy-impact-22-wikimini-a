@@ -10,6 +10,7 @@ import ReadArticle from '../components/ReadArticle'
 import Language from '../components/Language'
 import CreateActivity from '../components/CreateActivity'
 import Writer from '../components/Writer'
+import Congratulations from '../components/Congratulations'
 
 export const AppRouter = () => {
   return (
@@ -69,6 +70,10 @@ export const AppRouter = () => {
           <Route
             path={getRoutePath('CREATE_ACTIVITY')}
             element={<CreateActivity />}
+          />
+          <Route
+            path={getRoutePath('CONGRATULATIONS')}
+            element={<Congratulations />}
           />
           <Route path={getRoutePath('LANGUAGE')} element={<Language />} />
           {/* Authenticated routes */}
