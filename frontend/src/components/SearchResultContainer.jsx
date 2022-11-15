@@ -9,9 +9,9 @@ const SearchResultContainer = ({ item }) => {
   const categoryColor = (item) => {
     return item.category === 'article: '
       ? green
-      : item.category === 'activity: '
-      ? red
-      : blue
+      : item.category === 'dictionary: '
+      ? blue
+      : red
   }
 
   return (
