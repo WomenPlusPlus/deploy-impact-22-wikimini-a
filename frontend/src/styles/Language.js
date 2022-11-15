@@ -29,7 +29,7 @@ export const LanguageRoundedHeader = styled('div')({
     },
   })
 
-  export const LanguageButton = styled(Button)({
+export const LanguageButton = styled(Button)({
     borderRadius: '1.8em',
     color: white,
     backgroundColor: yellow,
@@ -48,11 +48,11 @@ export const LanguageRoundedHeader = styled('div')({
 })
 
 export const ImageLogo = styled('img')((props) => ({
-    position:'absolute',   
+    position:'absolute',
     marginTop: '-6em', 
-    height: '32%',
-    width: '63%',  
-    marginLeft: '20%'
+    height: '32vh',
+    width: '63vw',
+    maxWidth: '300px'
   }))
 
   export const Image = styled('img')((props) => ({
