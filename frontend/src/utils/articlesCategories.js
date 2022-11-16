@@ -3,7 +3,7 @@ export const articlesCategoriesOwlets = [
     title: 'Languages',
     image: require('../assets/languagesOwlets.png'),
   },
-  { title: 'Default', image: require('../assets/mathOwlets.png') },
+  { title: 'Math', image: require('../assets/mathOwlets.png') },
   {
     title: 'Science',
     image: require('../assets/socialSciencesOwlets.png'),

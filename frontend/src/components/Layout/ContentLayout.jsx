@@ -3,12 +3,18 @@ import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
 import { ButtonFolder } from '../../styles/Home'
 import { dark, green } from '../../theme/colors'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import ActiveContext from '../../context'
+import { useNavigate } from 'react-router-dom'
 
 const ContentLayout = ({ inheritChild }) => {
   
   const { active, setActive } = useContext(ActiveContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate('/home')
+  }, [active])
 
   return (
     <Box

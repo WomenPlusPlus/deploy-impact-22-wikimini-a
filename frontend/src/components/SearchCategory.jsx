@@ -35,6 +35,10 @@ const SearchCategory = () => {
     return articlesCategoriesOwls.find((item) => item.title.toLowerCase() === category).image
   }
 
+ // const imagePosition = (active === 'owlets' && category === 'languages') ? '180px' : '187px';
+
+  console.log(active === 'owlets' && category === 'languages')
+
   useEffect(() => {
     const getData = async () => {
       params.cmtitle = `Category:${category}`
@@ -90,6 +94,7 @@ const SearchCategory = () => {
           borderRadius: '50%',
           objectFit: 'cover',
           backgroundColor: yellow,
+          paddingBottom: '20px'
         }}
       />
       <List sx={{ height: '80%', width: '96%', overflow: 'auto' }}>
