@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { AccordionSummary, AccordionDetails } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import close from '../assets/close.svg'
+import edit from '../assets/editBlue.png'
 import { white } from '../theme/colors'
 import {
   Container,
@@ -14,6 +15,7 @@ import {
   AccordionContent,
   WordType,
   PaperWrapperType,
+  EditImage,
 } from '../styles/Word'
 
 const Word = () => {
@@ -107,6 +109,7 @@ const Word = () => {
                   <AccordionContent>{extract}</AccordionContent>
                 </AccordionDetails>
               </CustomAccordion>
+              <EditImage src={edit} alt='edit button' />
             </Container>
           </div>
         )

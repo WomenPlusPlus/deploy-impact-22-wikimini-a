@@ -109,3 +109,9 @@ export const WordType = styled(Typography)((props) => ({
   fontFamily: 'Futura Md BT',
   textTransform: 'uppercase',
 }))
+
+export const EditImage = styled('img')((props) => ({
+  marginTop: '2rem',
+  marginBottom: '2rem',
+  cursor: 'pointer',
+}))
