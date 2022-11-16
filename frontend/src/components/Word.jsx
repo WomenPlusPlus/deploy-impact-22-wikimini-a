@@ -101,7 +101,7 @@ const Word = () => {
                     />
                   }
                 >
-                  <AccordionTitle>Content</AccordionTitle>
+                  <AccordionTitle>Description</AccordionTitle>
                 </AccordionSummary>
                 <AccordionDetails aria-controls='content' id='content'>
                   <AccordionContent>{extract}</AccordionContent>
