@@ -201,14 +201,14 @@ const ReadArticle = () => {
                 </Typography>
                 <div
                   onClick={() => {
-                    navigate(`/article/${relatedResult[0].title}`)
+                    navigate(`/article/${relatedResult[0].title}/1`)
                   }}
                 >
                   <SearchResultContainer item={relatedResult[0]} />
                 </div>
                 <div
                   onClick={() => {
-                    navigate(`/article/${relatedResult[1].title}`)
+                    navigate(`/article/${relatedResult[1].title}/1`)
                   }}
                 >
                   <SearchResultContainer item={relatedResult[1]} />

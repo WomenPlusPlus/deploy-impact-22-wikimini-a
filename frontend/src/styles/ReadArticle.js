@@ -54,6 +54,7 @@ export const RoundedHeader = styled('section')((props) => ({
     background: '#fff',
     height: '22vh',
     width: '100%',
+    textAlign: 'center',
   },
 }))
 
