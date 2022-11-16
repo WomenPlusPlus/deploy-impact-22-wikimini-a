@@ -82,7 +82,6 @@ const SearchCategory = () => {
           borderRadius: '50%',
           objectFit: 'cover',
           backgroundColor: yellow,
-          // filter: 'contrast(400%) brightness(1)',
         }}
       />
       <List sx={{ height: '80%', width: '96%', overflow: 'auto' }}>
@@ -101,8 +100,6 @@ const SearchCategory = () => {
                     fontStyle: 'normal',
                     fontWeight: 700,
                     fontSize: '24px',
-
-                    textAlign: 'center',
                     color: white,
                     margin: '2rem',
                   }}
