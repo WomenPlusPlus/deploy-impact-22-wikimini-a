@@ -23,11 +23,11 @@ import {
   AccordionContent,
   EditImage,
 } from '../styles/ReadArticle'
-import { resultArticles } from '../utils/mockups'
 import SearchResultContainer from './SearchResultContainer'
 
 const ReadArticle = () => {
   const [searchResult, setSearchResult] = useState([])
+  const [relatedResult, setRelatedResult] = useState([])
   const [expandFirst, setExpandFirst] = useState(true)
 
   const { id, level } = useParams()
@@ -49,10 +49,13 @@ const ReadArticle = () => {
           ? `?origin=*&format=json&action=query&prop=pageimages|extracts&exintro&explaintext&titles=${id}`
           : `?origin=*&format=json&action=query&prop=pageimages|extracts&explaintext&titles=${id}`
 
+      const relatedEndpoint = `?origin=*&action=query&list=search&srsearch=${id}&format=json`
+
       try {
-        const [introData, contentData] = await Promise.all([
+        const [introData, contentData, relatedData] = await Promise.all([
           fetcher(introEndpoint),
           fetcher(contentEndpoint),
+          fetcher(relatedEndpoint),
         ])
 
         const intro = Object.values(introData.query.pages).map(
@@ -70,6 +73,26 @@ const ReadArticle = () => {
           })
         )
         setSearchResult(finalData)
+
+        if (relatedData.query.search.length) {
+          setRelatedResult(relatedData.query.search[relatedData.length - 1])
+          if (relatedData.query.search.length >= 2) {
+            setRelatedResult([
+              {
+                ...relatedData.query.search[
+                  relatedData.query.search.length - 2
+                ],
+                category: 'article: ',
+              },
+              {
+                ...relatedData.query.search[
+                  relatedData.query.search.length - 1
+                ],
+                category: 'article: ',
+              },
+            ])
+          }
+        }
       } catch (error) {
         throw new Error(error)
       }
@@ -178,17 +201,17 @@ const ReadArticle = () => {
                 </Typography>
                 <div
                   onClick={() => {
-                    navigate(`/article/${resultArticles[0].id}`)
+                    navigate(`/article/${relatedResult[0].title}`)
                   }}
                 >
-                  <SearchResultContainer item={resultArticles[0]} />
+                  <SearchResultContainer item={relatedResult[0]} />
                 </div>
                 <div
                   onClick={() => {
-                    navigate(`/article/${resultArticles[1].id}`)
+                    navigate(`/article/${relatedResult[1].title}`)
                   }}
                 >
-                  <SearchResultContainer item={resultArticles[1]} />
+                  <SearchResultContainer item={relatedResult[1]} />
                 </div>
               </BottomContainer>
             </Container>
