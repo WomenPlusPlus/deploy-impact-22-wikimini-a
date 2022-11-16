@@ -131,4 +131,5 @@ export const BottomContainer = styled('div')({
   alignItems: 'center',
   marginTop: '3rem',
   paddingBottom: '35px',
+  height: '34vh',
 })
