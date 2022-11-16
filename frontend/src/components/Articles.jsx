@@ -41,7 +41,7 @@ const Articles = () => {
           alignItems: 'center',
           textAlign: 'center',
           color: white,
-          marginBottom: '1rem',
+          marginBottom: '2rem',
           textTransform: 'uppercase',
         }}
         variant='h3'

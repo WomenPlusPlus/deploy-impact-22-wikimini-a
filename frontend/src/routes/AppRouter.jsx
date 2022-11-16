@@ -10,6 +10,7 @@ import ReadArticle from '../components/ReadArticle'
 import Language from '../components/Language'
 import CreateActivity from '../components/CreateActivity'
 import Writer from '../components/Writer'
+import Dictionary from '../components/Dictionary'
 import Congratulations from '../components/Congratulations'
 
 export const AppRouter = () => {
@@ -31,6 +32,14 @@ export const AppRouter = () => {
             element={
               <GuestLayout>
                 <Articles />
+              </GuestLayout>
+            }
+          />
+          <Route
+            path={getRoutePath('DICTIONARY')}
+            element={
+              <GuestLayout>
+                <Dictionary />
               </GuestLayout>
             }
           />

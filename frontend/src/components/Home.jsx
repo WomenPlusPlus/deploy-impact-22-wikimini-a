@@ -15,6 +15,7 @@ const Home = () => {
   const handleRedirects = (id) => {
     if (id === 'article') navigate(getRoutePath('ARTICLES'))
     if (id === 'writer') navigate(getRoutePath('WRITER'))
+    if (id === 'dictionary') navigate(getRoutePath('DICTIONARY'))
   }
 
   return (
@@ -57,14 +58,7 @@ const Home = () => {
                   style={{ transformOrigin: '0 0 0' }}
                   timeout={600 * (index + 1)}
                 >
-                  <Grid
-                    item
-                    onClick={() =>
-                      id === 'article'
-                        ? navigate(getRoutePath('ARTICLES'))
-                        : null
-                    }
-                  >
+                  <Grid item onClick={() => handleRedirects(id)}>
                     <OwlsImgBox src={image} alt={id} />
                   </Grid>
                 </Grow>
