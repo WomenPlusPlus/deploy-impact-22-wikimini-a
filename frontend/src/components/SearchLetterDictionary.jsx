@@ -10,13 +10,13 @@ import backButton from '../assets/backButton.svg'
 import { getRoutePath } from '../routes/route-utils'
 
 const endpoint =
-  'https://api.wikimedia.org/core/v1/wikipedia/en/search/title?limit=15'
+  'https://api.wikimedia.org/core/v1/wikipedia/en/search/title?limit=5'
 // const endpoint = 'http://192.168.64.2/api.php'
 const params = {
   limit: 10,
 }
 
-const SearchLetter = () => {
+const SearchLetterDictionary = () => {
   const [searchResults, setSearchResults] = useState([])
   const { letter } = useParams()
   const navigate = useNavigate()
@@ -55,6 +55,7 @@ const SearchLetter = () => {
           fontWeight: 900,
           fontSize: '138px',
           lineHeight: '58px',
+          textAlign: 'center',
           margin: '4rem',
           color: yellow,
         }}
@@ -69,7 +70,7 @@ const SearchLetter = () => {
               <ListItem
                 button
                 onClick={() => {
-                  navigate(`/article/${title}/1`)
+                  navigate(`/word/${title}/1`)
                 }}
               >
                 <Typography
@@ -95,4 +96,4 @@ const SearchLetter = () => {
   )
 }
 
-export default SearchLetter
+export default SearchLetterDictionary

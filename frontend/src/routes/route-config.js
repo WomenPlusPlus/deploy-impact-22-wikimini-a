@@ -20,11 +20,17 @@ export const WikiminiRoutes = {
   ARTICLE: {
     path: '/article/:id/:level',
   },
+  WORD: {
+    path: '/word/:id/:level',
+  },
   SEARCH: {
     path: '/search/:item',
   },
   SEARCH_LETTER: {
     path: '/search-letter/:letter',
+  },
+  SEARCH_LETTER_DICTIONARY: {
+    path: '/search-letter-dictionary/:letter',
   },
   SEARCH_CATEGORY: {
     path: '/search-category/:type/:category',

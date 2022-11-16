@@ -9,7 +9,7 @@ import { getRoutePath } from '../routes/route-utils'
 const Dictionary = () => {
   const navigate = useNavigate()
   const handleSearchLetter = async (letter) => {
-    navigate(`/search-letter/${letter}`)
+    navigate(`/search-letter-dictionary/${letter}`)
   }
   return (
     <>
@@ -44,8 +44,6 @@ const Dictionary = () => {
       </Typography>
       <SearchBar />
       <Letters handleSearchLetter={handleSearchLetter} />
-
-      {/* // </Stack> */}
     </>
   )
 }
