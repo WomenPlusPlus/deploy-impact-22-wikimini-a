@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid'
 import Grow from '@mui/material/Grow'
 import SearchBar from './SearchBar'
 import { homeBoxesDataOwlets, homeBoxesDataOwls } from '../utils/homeBoxesData'
-import { ImageInBox, TextInBox, PaperBox } from '../styles/Home'
+import { ImageInBox, TextInBox, PaperBox, OwlsImgBox } from '../styles/Home'
 import { useContext } from 'react'
 import ActiveContext from '../context'
 
@@ -65,7 +65,7 @@ const Home = () => {
                         : null
                     }
                   >
-                    <img src={image} />
+                    <OwlsImgBox src={image} alt={id} />
                   </Grid>
                 </Grow>
               ))}
