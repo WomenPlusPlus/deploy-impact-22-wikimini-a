@@ -4,6 +4,7 @@ import ContentEditable from 'react-contenteditable'
 
 export const CloseButtonWrapper = styled('section')((props) => ({
   display: 'flex',
+  width: '100%',
   justifyContent: 'flex-end',
   marginBottom: '2rem',
   img: {

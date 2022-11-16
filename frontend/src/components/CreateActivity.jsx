@@ -44,12 +44,11 @@ const CreateActivity = () => {
         extract: textareaValue,
       }
 
-      // delete for testing
       if (localStorage.getItem('createdActivity')) {
         localStorage.clear()
       }
       localStorage.setItem('createdActivity', JSON.stringify(uploadObj))
-      navigate('/home')
+      navigate('/congratulations')
     }
 
     convertImage()
