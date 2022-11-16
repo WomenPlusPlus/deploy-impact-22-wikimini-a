@@ -42,8 +42,18 @@ const SearchCategory = () => {
 
   return (
     <>
-    <img src={backButton} style={{width: '22px', position: 'absolute', left: '30px', top: '187px', cursor: 'pointer'}} onClick={() => navigate(getRoutePath('ARTICLES'))} />
-    <Typography
+      <img
+        src={backButton}
+        style={{
+          width: '22px',
+          position: 'absolute',
+          left: '30px',
+          top: '187px',
+          cursor: 'pointer',
+        }}
+        onClick={() => navigate(getRoutePath('ARTICLES'))}
+      />
+      <Typography
         sx={{
           fontFamily: 'Futura',
           fontStyle: 'normal',
@@ -81,7 +91,7 @@ const SearchCategory = () => {
             <div
               key={index}
               onClick={() => {
-                navigate(`/article/${title}`)
+                navigate(`/article/${title}/1`)
               }}
             >
               <ListItem button>
