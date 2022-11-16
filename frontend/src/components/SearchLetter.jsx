@@ -37,7 +37,17 @@ const SearchLetter = () => {
 
   return (
     <>
-    <img src={backButton} style={{width: '22px', position: 'absolute', left: '30px', top: '210px', cursor: 'pointer'}} onClick={() => navigate(getRoutePath('HOME'))} />
+      <img
+        src={backButton}
+        style={{
+          width: '22px',
+          position: 'absolute',
+          left: '30px',
+          top: '210px',
+          cursor: 'pointer',
+        }}
+        onClick={() => navigate(getRoutePath('HOME'))}
+      />
       <Typography
         sx={{
           fontFamily: 'Futura',
@@ -60,7 +70,7 @@ const SearchLetter = () => {
               <ListItem
                 button
                 onClick={() => {
-                  navigate(`/article/${title}`)
+                  navigate(`/article/${title}/1`)
                 }}
               >
                 <Typography

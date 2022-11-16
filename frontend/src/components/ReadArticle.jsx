@@ -9,7 +9,7 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import close from '../assets/close.svg'
 import edit from '../assets/edit.svg'
-import { green, white, darkBlue } from '../theme/colors'
+import { green, white } from '../theme/colors'
 import {
   BottomContainer,
   Container,
@@ -29,7 +29,8 @@ import SearchResultContainer from './SearchResultContainer'
 const ReadArticle = () => {
   const [searchResult, setSearchResult] = useState([])
   const [expandFirst, setExpandFirst] = useState(true)
-  const { id } = useParams()
+
+  const { id, level } = useParams()
   const navigate = useNavigate()
 
   const fetcher = async (path) => {
@@ -39,8 +40,14 @@ const ReadArticle = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const introEndpoint = `?origin=*&format=json&action=query&prop=extracts&exintro&explaintext&exsentences=2&titles=${id}`
-      const contentEndpoint = `?origin=*&format=json&action=query&prop=pageimages|extracts&exintro&explaintext&titles=${id}`
+      const introEndpoint =
+        level === '1'
+          ? `?origin=*&format=json&action=query&prop=extracts&exintro&explaintext&exsentences=2&titles=${id}`
+          : `?origin=*&format=json&action=query&prop=pageimages|extracts&exintro&explaintext&titles=${id}`
+      const contentEndpoint =
+        level === '1'
+          ? `?origin=*&format=json&action=query&prop=pageimages|extracts&exintro&explaintext&titles=${id}`
+          : `?origin=*&format=json&action=query&prop=pageimages|extracts&explaintext&titles=${id}`
 
       try {
         const [introData, contentData] = await Promise.all([
@@ -69,7 +76,7 @@ const ReadArticle = () => {
     }
 
     getData()
-  }, [id])
+  }, [id, level])
 
   return (
     <div style={{ background: white }}>
@@ -85,9 +92,11 @@ const ReadArticle = () => {
                     lineHeight: '2px',
                     padding: '8px',
                     marginRight: '4px',
-                    background: green,
+                    background: level === '1' ? green : 'none',
+                    '&:hover': { background: green },
                   }}
-                  variant='contained'
+                  variant={level === '1' ? 'contained' : 'text'}
+                  onClick={() => navigate(`/article/${id}/${1}`)}
                 >
                   1
                 </Button>
@@ -97,9 +106,11 @@ const ReadArticle = () => {
                     lineHeight: '2px',
                     padding: '8px',
                     marginLeft: '4px',
-                    color: darkBlue,
+                    background: level === '2' ? green : 'none',
+                    '&:hover': { background: green },
                   }}
-                  variant='text'
+                  variant={level === '2' ? 'contained' : 'text'}
+                  onClick={() => navigate(`/article/${id}/${2}`)}
                 >
                   2
                 </Button>
