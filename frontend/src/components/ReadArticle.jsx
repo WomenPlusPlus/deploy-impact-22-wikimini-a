@@ -9,7 +9,7 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import close from '../assets/close.svg'
 import edit from '../assets/edit.svg'
-import { green, white } from '../theme/colors'
+import { green, white, dark } from '../theme/colors'
 import {
   BottomContainer,
   Container,
@@ -106,7 +106,7 @@ const ReadArticle = () => {
       {searchResult.map(({ pageid, title, image, intro, extract }) => {
         return (
           <div key={pageid}>
-            <RoundedHeader title={title}>
+            <RoundedHeader title={title} level={level}>
               <ReadingLevelText>Reading level:</ReadingLevelText>
               <LevelButtonsContainer>
                 <Button
@@ -129,8 +129,8 @@ const ReadArticle = () => {
                     lineHeight: '2px',
                     padding: '8px',
                     marginLeft: '4px',
-                    background: level === '2' ? green : 'none',
-                    '&:hover': { background: green },
+                    background: level === '2' ? dark : 'none',
+                    '&:hover': { background: dark },
                   }}
                   variant={level === '2' ? 'contained' : 'text'}
                   onClick={() => navigate(`/article/${id}/${2}`)}
@@ -148,6 +148,7 @@ const ReadArticle = () => {
             <Container>
               <Image src={image} />
               <CustomAccordion
+                level={level}
                 expanded={expandFirst}
                 onChange={() => setExpandFirst(!expandFirst)}
               >
@@ -157,7 +158,7 @@ const ReadArticle = () => {
                       sx={{
                         background: white,
                         borderRadius: '50%',
-                        color: green,
+                        color:level === '1' ? green : dark
                       }}
                     />
                   }
@@ -168,14 +169,14 @@ const ReadArticle = () => {
                   <AccordionContent>{intro}</AccordionContent>
                 </AccordionDetails>
               </CustomAccordion>
-              <CustomAccordion>
+              <CustomAccordion level={level}>
                 <AccordionSummary
                   expandIcon={
                     <ExpandMoreIcon
                       sx={{
                         background: white,
                         borderRadius: '50%',
-                        color: green,
+                        color: level === '1' ? green : dark,
                       }}
                     />
                   }
@@ -187,7 +188,7 @@ const ReadArticle = () => {
                 </AccordionDetails>
               </CustomAccordion>
               <EditImage src={edit} />
-              <BottomContainer>
+              <BottomContainer level={level}>
                 <Typography
                   sx={{
                     fontWeight: '700',

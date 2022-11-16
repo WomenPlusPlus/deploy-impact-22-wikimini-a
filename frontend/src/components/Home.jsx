@@ -16,6 +16,7 @@ const Home = () => {
     if (id === 'article') navigate(getRoutePath('ARTICLES'))
     if (id === 'writer') navigate(getRoutePath('WRITER'))
     if (id === 'dictionary') navigate(getRoutePath('DICTIONARY'))
+    if (id === 'activity') navigate(getRoutePath('ACTIVITY'))
   }
 
   return (

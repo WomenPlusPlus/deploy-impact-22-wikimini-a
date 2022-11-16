@@ -14,6 +14,7 @@ import CreateActivity from '../components/CreateActivity'
 import Writer from '../components/Writer'
 import Dictionary from '../components/Dictionary'
 import Congratulations from '../components/Congratulations'
+import Activity from '../components/Activity'
 
 export const AppRouter = () => {
   return (
@@ -96,6 +97,7 @@ export const AppRouter = () => {
             element={<Congratulations />}
           />
           <Route path={getRoutePath('LANGUAGE')} element={<Language />} />
+          <Route path={getRoutePath('ACTIVITY')} element={<Activity />} />
           {/* Authenticated routes */}
         </Routes>
       </div>
