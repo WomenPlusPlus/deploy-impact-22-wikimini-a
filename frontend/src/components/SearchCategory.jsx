@@ -7,9 +7,9 @@ import Divider from '@mui/material/Divider'
 import CardMedia from '@mui/material/CardMedia'
 import { white, yellow } from '../theme/colors'
 import { Typography } from '@mui/material'
-import { categoryImages } from '../utils/categoryImages'
 import backButton from '../assets/backButton.svg'
 import { getRoutePath } from '../routes/route-utils'
+import { articlesCategories } from '../utils/articlesCategories'
 
 // const endpoint = 'http://192.168.64.2/api.php'
 const endpoint = 'https://en.wikipedia.org/w/api.php'
@@ -26,6 +26,10 @@ const SearchCategory = () => {
   const [searchResults, setSearchResults] = useState([])
   const { type, category } = useParams()
   const navigate = useNavigate()
+
+  const getCategoryImage = () => {
+    return articlesCategories.find((item) => item.title.toLowerCase() === category).image
+  }
 
   useEffect(() => {
     const getData = async () => {
@@ -73,7 +77,7 @@ const SearchCategory = () => {
       </Typography>
       <CardMedia
         component='img'
-        image={categoryImages[category]}
+        image={getCategoryImage()}
         alt='green iguana'
         sx={{
           width: 120,

@@ -6,7 +6,7 @@ import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
 import Grow from '@mui/material/Grow'
 import SearchBar from './SearchBar'
-import { green, white, blue, lightBlue } from '../theme/colors'
+import { white, blue, lightBlue } from '../theme/colors'
 import { Typography } from '@mui/material'
 import { articlesCategories } from '../utils/articlesCategories'
 import backButton from '../assets/backButton.svg'
@@ -19,17 +19,7 @@ const Articles = () => {
   }
   return (
     <>
-      <img
-        src={backButton}
-        style={{
-          width: '22px',
-          position: 'absolute',
-          left: '30px',
-          top: '187px',
-          cursor: 'pointer',
-        }}
-        onClick={() => navigate(getRoutePath('HOME'))}
-      />
+      <img src={backButton} style={{width: '22px', position: 'absolute', left: '30px', top: '187px', cursor: 'pointer'}} onClick={() => navigate(getRoutePath('ARTICLES'))} />
       <Typography
         sx={{
           fontFamily: 'Futura',
@@ -41,7 +31,7 @@ const Articles = () => {
           alignItems: 'center',
           textAlign: 'center',
           color: white,
-          marginBottom: '2rem',
+          marginBottom: '1rem',
           textTransform: 'uppercase',
         }}
         variant='h3'
@@ -63,7 +53,7 @@ const Articles = () => {
         >
           <Grid item xs={12}>
             <Grid container justifyContent='center' spacing={2}>
-              {articlesCategories.map(({ title }, index) => (
+              {articlesCategories.map(({ title, image }, index) => (
                 <Grow
                   key={index}
                   in={true}
@@ -75,7 +65,6 @@ const Articles = () => {
                       sx={{
                         height: 150,
                         width: 148,
-                        backgroundColor: green,
                         borderRadius: '10px',
                         display: 'flex',
                         flexDirection: 'column',
@@ -93,9 +82,7 @@ const Articles = () => {
                       }}
                       elevation={3}
                       onClick={() =>
-                        navigate(
-                          `/search-category/articles/${title.toLowerCase()}`
-                        )
+                        navigate(`/search-category/articles/${title.toLowerCase()}`)
                       }
                     >
                       <Typography
@@ -118,6 +105,7 @@ const Articles = () => {
                       >
                         {title}
                       </Typography>
+                      <img style={{position: 'relative', bottom: '65px'}} src={image} />
                     </Paper>
                   </Grid>
                 </Grow>
