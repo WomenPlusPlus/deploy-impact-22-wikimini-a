@@ -19,7 +19,17 @@ const Articles = () => {
   }
   return (
     <>
-      <img src={backButton} style={{width: '22px', position: 'absolute', left: '30px', top: '187px', cursor: 'pointer'}} onClick={() => navigate(getRoutePath('ARTICLES'))} />
+      <img
+        src={backButton}
+        style={{
+          width: '22px',
+          position: 'absolute',
+          left: '30px',
+          top: '187px',
+          cursor: 'pointer',
+        }}
+        onClick={() => navigate(getRoutePath('HOME'))}
+      />
       <Typography
         sx={{
           fontFamily: 'Futura',
@@ -83,7 +93,9 @@ const Articles = () => {
                       }}
                       elevation={3}
                       onClick={() =>
-                        navigate(`/search-category/articles/${title.toLowerCase()}`)
+                        navigate(
+                          `/search-category/articles/${title.toLowerCase()}`
+                        )
                       }
                     >
                       <Typography
