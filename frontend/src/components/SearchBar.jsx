@@ -53,7 +53,7 @@ export default function SearchBar() {
           fontFamily: 'Futura',
           fontStyle: 'normal',
           fontWeight: '700',
-          fontSize: '20px',
+          fontSize: '18px',
           lineHeight: '27px',
           color: '#FFFFFF',
           boderStyle: 'none',

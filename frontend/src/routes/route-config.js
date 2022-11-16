@@ -18,7 +18,10 @@ export const WikiminiRoutes = {
     path: '/articles',
   },
   ARTICLE: {
-    path: '/article/:id',
+    path: '/article/:id/:level',
+  },
+  WORD: {
+    path: '/word/:id/:level',
   },
   SEARCH: {
     path: '/search/:item',
@@ -26,10 +29,25 @@ export const WikiminiRoutes = {
   SEARCH_LETTER: {
     path: '/search-letter/:letter',
   },
+  SEARCH_LETTER_DICTIONARY: {
+    path: '/search-letter-dictionary/:letter',
+  },
   SEARCH_CATEGORY: {
-    path: '/search-category/:category',
+    path: '/search-category/:type/:category',
   },
   LANGUAGE: {
-    path: '/'
-  }
+    path: '/',
+  },
+  CREATE_ACTIVITY: {
+    path: '/activity/create/:name',
+  },
+  WRITER: {
+    path: '/writer',
+  },
+  DICTIONARY: {
+    path: '/dictionary',
+  },
+  CONGRATULATIONS: {
+    path: '/congratulations',
+  },
 }

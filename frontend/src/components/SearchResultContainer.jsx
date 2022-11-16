@@ -9,15 +9,15 @@ const SearchResultContainer = ({ item }) => {
   const categoryColor = (item) => {
     return item.category === 'article: '
       ? green
-      : item.category === 'activity: '
-      ? red
-      : blue
+      : item.category === 'dictionary: '
+      ? blue
+      : red
   }
 
   return (
     <Container
       onClick={() => {
-        navigate(`/article/${item.title}`)
+        navigate(`/article/${item.title}/1`)
       }}
     >
       <Image borderColor={categoryColor(item)} src={item.image} />

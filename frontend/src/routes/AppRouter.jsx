@@ -3,11 +3,17 @@ import GuestLayout from '../components/Layout/GuestLayout'
 import Home from '../components/Home'
 import Articles from '../components/Articles'
 import SearchLetter from '../components/SearchLetter'
+import SearchLetterDictionary from '../components/SearchLetterDictionary'
 import SearchCategory from '../components/SearchCategory'
 import { getRoutePath } from './route-utils'
 import SearchResults from '../components/SearchResults'
 import ReadArticle from '../components/ReadArticle'
+import Word from '../components/Word'
 import Language from '../components/Language'
+import CreateActivity from '../components/CreateActivity'
+import Writer from '../components/Writer'
+import Dictionary from '../components/Dictionary'
+import Congratulations from '../components/Congratulations'
 
 export const AppRouter = () => {
   return (
@@ -31,7 +37,24 @@ export const AppRouter = () => {
               </GuestLayout>
             }
           />
+          <Route
+            path={getRoutePath('DICTIONARY')}
+            element={
+              <GuestLayout>
+                <Dictionary />
+              </GuestLayout>
+            }
+          />
           <Route path={getRoutePath('ARTICLE')} element={<ReadArticle />} />
+          <Route path={getRoutePath('WORD')} element={<Word />} />
+          <Route
+            path={getRoutePath('WRITER')}
+            element={
+              <GuestLayout>
+                <Writer />
+              </GuestLayout>
+            }
+          />
           <Route
             path={getRoutePath('SEARCH')}
             element={
@@ -49,6 +72,14 @@ export const AppRouter = () => {
             }
           />
           <Route
+            path={getRoutePath('SEARCH_LETTER_DICTIONARY')}
+            element={
+              <GuestLayout>
+                <SearchLetterDictionary />
+              </GuestLayout>
+            }
+          />
+          <Route
             path={getRoutePath('SEARCH_CATEGORY')}
             element={
               <GuestLayout>
@@ -57,11 +88,14 @@ export const AppRouter = () => {
             }
           />
           <Route
-            path={getRoutePath('LANGUAGE')}
-            element={
-              <Language/>
-            }
+            path={getRoutePath('CREATE_ACTIVITY')}
+            element={<CreateActivity />}
           />
+          <Route
+            path={getRoutePath('CONGRATULATIONS')}
+            element={<Congratulations />}
+          />
+          <Route path={getRoutePath('LANGUAGE')} element={<Language />} />
           {/* Authenticated routes */}
         </Routes>
       </div>

@@ -59,3 +59,21 @@ export const PaperBox = styled(Paper)((props) => ({
     cursor: 'pointer',
   },
 }))
+
+export const OwlsImgBox = styled('img')((props) => ({
+  height: 140,
+  width: 138,
+  borderRadius: '15px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginTop: '1rem',
+  '&:hover': {
+    boxShadow: 'inset 0 0 100px 100px rgba(255, 255, 255, 0.1)',
+    height: 150,
+    width: 148,
+    transition: '.3s',
+    cursor: 'pointer',
+  },
+}))

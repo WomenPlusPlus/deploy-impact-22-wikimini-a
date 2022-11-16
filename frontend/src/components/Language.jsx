@@ -1,6 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import { getRoutePath } from '../routes/route-utils'
-import { LanguageRoundedHeader, LanguageButton, ImageLogo, Image } from '../styles/Language'
+import {
+  LanguageRoundedHeader,
+  LanguageButton,
+  ImageLogo,
+  Image,
+} from '../styles/Language'
 import { green, white } from '../theme/colors'
 import wikiminiLogo from '../assets/wikiminiLogoLanguage.png'
 import monster from '../assets/monster.png'
@@ -9,7 +14,6 @@ import minionRight from '../assets/minion.png'
 
 const Language = () => {
   const navigate = useNavigate()
-
     return (
       <div style={{ background: white }}>
         <LanguageRoundedHeader></LanguageRoundedHeader>      
@@ -43,16 +47,16 @@ const Language = () => {
             sx={{ 
               height: '30%',
               width: '14%',
-              maxWidth: '80px', 
-              marginLeft:'70vw', 
-              marginTop: '14vh'
-            }} 
+              maxWidth: '80px',
+              marginLeft: '70vw',
+              marginTop: '14vh',
+            }}
             src={minionRight}
           ></Image>
-          </div>
         </div>
-      </div>  
-    )
+      </div>
+    </div>
+  )
 }
 
 export default Language

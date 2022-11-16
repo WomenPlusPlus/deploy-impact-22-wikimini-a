@@ -10,6 +10,7 @@ import { green, white, blue, lightBlue } from '../theme/colors'
 import { Typography } from '@mui/material'
 import { articlesCategories } from '../utils/articlesCategories'
 import backButton from '../assets/backButton.svg'
+import { getRoutePath } from '../routes/route-utils'
 
 const Articles = () => {
   const navigate = useNavigate()
@@ -18,19 +19,30 @@ const Articles = () => {
   }
   return (
     <>
-      <img src={backButton} style={{width: '22px', position: 'absolute', left: '30px', top: '210px', cursor: 'pointer'}} onClick={() => navigate(-1)} />
+      <img
+        src={backButton}
+        style={{
+          width: '22px',
+          position: 'absolute',
+          left: '30px',
+          top: '187px',
+          cursor: 'pointer',
+        }}
+        onClick={() => navigate(getRoutePath('HOME'))}
+      />
       <Typography
         sx={{
           fontFamily: 'Futura',
           fontStyle: 'normal',
           fontWeight: 700,
-          fontSize: '38px',
-          lineHeight: '58px',
+          fontSize: '16px',
+          lineHeight: '16px',
           display: 'flex',
           alignItems: 'center',
           textAlign: 'center',
           color: white,
-          marginBottom: '1rem',
+          marginBottom: '2rem',
+          textTransform: 'uppercase',
         }}
         variant='h3'
       >
@@ -81,7 +93,9 @@ const Articles = () => {
                       }}
                       elevation={3}
                       onClick={() =>
-                        navigate(`/search-category/${title.toLowerCase()}`)
+                        navigate(
+                          `/search-category/articles/${title.toLowerCase()}`
+                        )
                       }
                     >
                       <Typography
