@@ -9,7 +9,7 @@ export const Container = styled('div')({
   alignItems: 'center',
 })
 
-export const Image = styled('img')((props) => ({
+export const Image = styled('img')({
   marginTop: '0.25em',
   maxHeight: '160px',
   minWidth: '100px',
@@ -18,9 +18,9 @@ export const Image = styled('img')((props) => ({
   marginLeft: '12px',
   marginRight: '12px',
   marginBottom: '2.5rem',
-}))
+})
 
-export const CloseButton = styled('img')((props) => ({
+export const CloseButton = styled('img')({
   height: '20px',
   weight: '20px',
   zIndex: '100',
@@ -28,7 +28,7 @@ export const CloseButton = styled('img')((props) => ({
   top: 0,
   right: 0,
   margin: '15px',
-}))
+})
 
 export const RoundedHeader = styled('section')((props) => ({
   position: 'relative',
@@ -74,21 +74,21 @@ export const CustomAccordion = styled(Accordion)({
   },
 })
 
-export const AccordionTitle = styled(Typography)((props) => ({
+export const AccordionTitle = styled(Typography)({
   fontFamily: 'Futura Md BT',
   fontWeight: '400',
   fontSize: '16px',
   lineHeight: '19px',
   textTransform: 'uppercase',
   color: white,
-}))
+})
 
-export const AccordionContent = styled(Typography)((props) => ({
+export const AccordionContent = styled(Typography)({
   fontWeight: '500',
   fontSize: '24px',
   lineHeight: '147.81%',
   color: '#2F2E41',
-}))
+})
 
 export const EditImage = styled('img')({
   marginTop: '2rem',
