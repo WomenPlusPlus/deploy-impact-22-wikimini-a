@@ -60,11 +60,13 @@ export const RoundedHeader = styled('section')((props) => ({
 
 export const CustomAccordion = styled(Accordion)({
   backgroundColor: red,
-  marginBottom: '2.5rem',
+  marginBottom: '4.5rem',
+  marginTop: '2.5rem',
   width: '85%',
   maxWidth: '320px',
   borderRadius: '33px !important',
-
+  whiteSpace: 'pre-wrap',
+  boxShadow: 'none',
   '& #content': {
     background: 'white',
   },
@@ -91,6 +93,6 @@ export const AccordionContent = styled(Typography)({
 })
 
 export const EditImage = styled('img')({
-  marginTop: '2rem',
+  marginTop: '3rem',
   cursor: 'pointer',
 })

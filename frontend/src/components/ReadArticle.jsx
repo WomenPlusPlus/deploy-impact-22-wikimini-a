@@ -9,6 +9,7 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import close from '../assets/close.svg'
 import edit from '../assets/edit.svg'
+import editBlue from '../assets/editBlue.png'
 import { green, white, dark } from '../theme/colors'
 import {
   BottomContainer,
@@ -158,7 +159,7 @@ const ReadArticle = () => {
                       sx={{
                         background: white,
                         borderRadius: '50%',
-                        color:level === '1' ? green : dark
+                        color: level === '1' ? green : dark,
                       }}
                     />
                   }
@@ -187,7 +188,7 @@ const ReadArticle = () => {
                   <AccordionContent>{extract}</AccordionContent>
                 </AccordionDetails>
               </CustomAccordion>
-              <EditImage src={edit} />
+              <EditImage src={level === '2' ? editBlue : edit} />
               <BottomContainer level={level}>
                 <Typography
                   sx={{

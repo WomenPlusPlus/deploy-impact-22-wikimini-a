@@ -51,6 +51,6 @@ export const WikiminiRoutes = {
     path: '/congratulations',
   },
   ACTIVITY: {
-    path: '/activity',
+    path: '/activity/:name',
   },
 }

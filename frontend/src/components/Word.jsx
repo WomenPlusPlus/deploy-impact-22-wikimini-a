@@ -19,60 +19,59 @@ import {
 } from '../styles/Word'
 
 const Word = () => {
-  const [searchResult, setSearchResult] = useState([])
+  const [searchResult] = useState([
+    {
+      pageid: 20349,
+      title: 'Intrigued',
+      extract: 'curiosity or interest of; fascinate',
+      image: require('../assets/intrigued.jpg'),
+    },
+  ])
   const [expandFirst, setExpandFirst] = useState(true)
 
   const { id, level } = useParams()
   const navigate = useNavigate()
 
-  const fetcher = async (path) => {
-    const response = await fetch('https://en.wikipedia.org/w/api.php' + path)
-    return await response.json()
-  }
-
   useEffect(() => {
-    const getData = async () => {
-      const introEndpoint =
-        level === '1'
-          ? `?origin=*&format=json&action=query&prop=extracts&exintro&explaintext&exsentences=2&titles=${id}`
-          : `?origin=*&format=json&action=query&prop=pageimages|extracts&exintro&explaintext&titles=${id}`
-      const contentEndpoint =
-        level === '1'
-          ? `?origin=*&format=json&action=query&prop=pageimages|extracts&exintro&explaintext&titles=${id}`
-          : `?origin=*&format=json&action=query&prop=pageimages|extracts&explaintext&titles=${id}`
-
-      try {
-        const [introData, contentData] = await Promise.all([
-          fetcher(introEndpoint),
-          fetcher(contentEndpoint),
-        ])
-
-        const intro = Object.values(introData.query.pages).map(
-          ({ title, pageid, thumbnail, extract }) => ({
-            extract,
-          })
-        )
-        const finalData = Object.values(contentData.query.pages).map(
-          ({ title, pageid, thumbnail, extract }) => ({
-            pageid,
-            title,
-            extract,
-            image: thumbnail ? thumbnail.source : null,
-            intro: intro[0].extract,
-          })
-        )
-        setSearchResult(finalData)
-      } catch (error) {
-        throw new Error(error)
-      }
-    }
-
-    getData()
+    // const getData = async () => {
+    //   const introEndpoint =
+    //     level === '1'
+    //       ? `?origin=*&format=json&action=query&prop=extracts&exintro&explaintext&exsentences=2&titles=${id}`
+    //       : `?origin=*&format=json&action=query&prop=pageimages|extracts&exintro&explaintext&titles=${id}`
+    //   const contentEndpoint =
+    //     level === '1'
+    //       ? `?origin=*&format=json&action=query&prop=pageimages|extracts&exintro&explaintext&titles=${id}`
+    //       : `?origin=*&format=json&action=query&prop=pageimages|extracts&explaintext&titles=${id}`
+    //   try {
+    //     const [introData, contentData] = await Promise.all([
+    //       fetcher(introEndpoint),
+    //       fetcher(contentEndpoint),
+    //     ])
+    //     const intro = Object.values(introData.query.pages).map(
+    //       ({ title, pageid, thumbnail, extract }) => ({
+    //         extract,
+    //       })
+    //     )
+    //     const finalData = Object.values(contentData.query.pages).map(
+    //       ({ title, pageid, thumbnail, extract }) => ({
+    //         pageid,
+    //         title,
+    //         extract,
+    //         image: thumbnail ? thumbnail.source : null,
+    //         intro: intro[0].extract,
+    //       })
+    //     )
+    //     setSearchResult(finalData)
+    //   } catch (error) {
+    //     throw new Error(error)
+    //   }
+    // }
+    // getData()
   }, [id, level])
 
   return (
     <div style={{ background: white }}>
-      {searchResult.map(({ pageid, title, image, intro, extract }) => {
+      {searchResult.map(({ pageid, title, image, extract }) => {
         return (
           <div key={pageid}>
             <RoundedHeader title={title}>
@@ -86,7 +85,7 @@ const Word = () => {
             <Container>
               <Image src={image} />
               <PaperWrapperType>
-                <WordType>Noun</WordType>
+                <WordType>Verb</WordType>
               </PaperWrapperType>
               <CustomAccordion
                 expanded={expandFirst}
