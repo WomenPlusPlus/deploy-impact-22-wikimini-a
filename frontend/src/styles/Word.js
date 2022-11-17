@@ -62,7 +62,6 @@ export const CustomAccordion = styled(Accordion)((props) => ({
   background: '#2F2E41',
   marginBottom: '2.5rem',
   width: '85%',
-  maxWidth: '320px',
   borderRadius: '33px !important',
 
   '& #content': {
