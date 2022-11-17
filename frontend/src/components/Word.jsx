@@ -22,8 +22,8 @@ const Word = () => {
   const [searchResult] = useState([
     {
       pageid: 20349,
-      title: 'Intrigued',
-      extract: 'curiosity or interest of; fascinate',
+      title: 'Intrigue',
+      extract: 'arouse the curiosity or interest of; fascinate',
       image: require('../assets/intrigued.jpg'),
     },
   ])
