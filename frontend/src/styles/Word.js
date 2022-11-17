@@ -90,7 +90,7 @@ export const AccordionContent = styled(Typography)((props) => ({
 }))
 
 export const PaperWrapperType = styled(Paper)((props) => ({
-  width: '82%',
+  width: '85%',
   minHeight: '40px',
   display: 'flex',
   justifyContent: 'center',
