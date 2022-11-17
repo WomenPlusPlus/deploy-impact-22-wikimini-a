@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import Letters from './Letters'
-import SearchBar from './SearchBar'
+import DictionarySearch from './DictionarySearch'
 import { white } from '../theme/colors'
 import { Typography } from '@mui/material'
 import backButton from '../assets/backButton.svg'
@@ -42,7 +42,7 @@ const Dictionary = () => {
       >
         Dictionary
       </Typography>
-      <SearchBar />
+      <DictionarySearch />
       <Letters handleSearchLetter={handleSearchLetter} />
     </>
   )
