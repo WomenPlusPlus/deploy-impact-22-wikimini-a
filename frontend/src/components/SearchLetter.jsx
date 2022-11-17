@@ -46,7 +46,7 @@ const SearchLetter = () => {
           top: '210px',
           cursor: 'pointer',
         }}
-        onClick={() => navigate(getRoutePath('HOME'))}
+        onClick={() => navigate(getRoutePath('ARTICLES'))}
       />
       <Typography
         sx={{
