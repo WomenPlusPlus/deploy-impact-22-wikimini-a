@@ -19,7 +19,7 @@ Design and develop a completely new mobile application to make the process of le
 * Teacher
 
 ## Site Map.
-![alt text](https://github.com/WomenPlusPlus/deploy-impact-22-wikimini-a/blob/main/frontend/src/assets/SITE%20MAP.png)
+![alt text](https://github.com/WomenPlusPlus/deploy-impact-22-wikimini-a/blob/main/src/src/assets/SITE%20MAP.png)
 
 <img src="https://github.com/WomenPlusPlus/deploy-impact-22-wikimini-a/blob/main/src/src/assets/monster.png" 
      width="20" height="28" align="left">
