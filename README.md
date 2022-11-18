@@ -27,8 +27,12 @@ Design and develop a completely new mobile application to make the process of le
 ### Prerequisites.
 
 * [React](https://reactjs.org/)
-* [NodeJs](https://nodejs.org/en/)
 * [MaterialUI](https://mui.com/)
+
+### Third party libraries
+* [Axios](https://axios-http.com/docs/intro)
+* [react-confetti](https://www.npmjs.com/package/react-confetti)
+* [react-contenteditable](https://www.npmjs.com/package/react-contenteditable)
 
 ### Getting started.
 
