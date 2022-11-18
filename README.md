@@ -12,6 +12,9 @@ The original application [WikiMini](https://wikimini.org/) was going to be shutd
 
 Design and develop a completely new mobile application to make the process of learning as easy and interactive as possible, focused on kids from 6-10 and teenagers from 11-14 years old.
 
+![demo](https://user-images.githubusercontent.com/57358923/202674400-64c20327-0e43-4987-91aa-282004ef20ff.gif)
+
+
 ## Users.
 
 * Owls (11-14 years)
