@@ -9,7 +9,10 @@ import { white, yellow } from '../theme/colors'
 import { Typography } from '@mui/material'
 import backButton from '../assets/backButton.svg'
 import { getRoutePath } from '../routes/route-utils'
-import { articlesCategoriesOwlets, articlesCategoriesOwls } from '../utils/articlesCategories'
+import {
+  articlesCategoriesOwlets,
+  articlesCategoriesOwls,
+} from '../utils/articlesCategories'
 import ActiveContext from '../context'
 
 // const endpoint = 'http://192.168.64.2/api.php'
@@ -27,17 +30,17 @@ const SearchCategory = () => {
   const [searchResults, setSearchResults] = useState([])
   const { type, category } = useParams()
   const navigate = useNavigate()
-  const { active } = useContext(ActiveContext);
+  const { active } = useContext(ActiveContext)
 
   const getCategoryImage = () => {
-    if(active === 'owlets')
-     return articlesCategoriesOwlets.find((item) => item.title.toLowerCase() === category).image
-    return articlesCategoriesOwls.find((item) => item.title.toLowerCase() === category).image
+    if (active === 'owlets')
+      return articlesCategoriesOwlets.find(
+        (item) => item.title.toLowerCase() === category
+      ).image
+    return articlesCategoriesOwls.find(
+      (item) => item.title.toLowerCase() === category
+    ).image
   }
-
- // const imagePosition = (active === 'owlets' && category === 'languages') ? '180px' : '187px';
-
-  console.log(active === 'owlets' && category === 'languages')
 
   useEffect(() => {
     const getData = async () => {
@@ -94,7 +97,7 @@ const SearchCategory = () => {
           borderRadius: '50%',
           objectFit: 'cover',
           backgroundColor: yellow,
-          paddingBottom: '20px'
+          paddingBottom: '20px',
         }}
       />
       <List sx={{ height: '80%', width: '96%', overflow: 'auto' }}>
