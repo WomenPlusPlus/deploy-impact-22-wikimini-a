@@ -32,6 +32,11 @@ Design and develop a completely new mobile application to make the process of le
 
 ### Getting started.
 
+You can either run it locally or visit the deploy version:
+
+Deploy: https://wikimin-a.netlify.app/
+
+Locally:
 1. Clone the project
 2. Open a cmd in the folder location of the project and execute:
 ```
@@ -39,6 +44,9 @@ cd frontend
 npm install
 npm start
 ```
+
+### Our wiki.
+https://wikimini.miraheze.org/wiki/  (currently down)
 
 ## Team members.
 * Emilia Rigo
