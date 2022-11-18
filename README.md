@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/WomenPlusPlus/deploy-impact-22-wikimini-a/blob/main/frontend/src/assets/wikiminiLogoLanguage.png">
+  <img src="https://github.com/WomenPlusPlus/deploy-impact-22-wikimini-a/blob/main/src/src/assets/wikiminiLogoLanguage.png">
 </p>
 
 # Wikimini
@@ -21,7 +21,7 @@ Design and develop a completely new mobile application to make the process of le
 ## Site Map.
 ![alt text](https://github.com/WomenPlusPlus/deploy-impact-22-wikimini-a/blob/main/frontend/src/assets/SITE%20MAP.png)
 
-<img src="https://github.com/WomenPlusPlus/deploy-impact-22-wikimini-a/blob/main/frontend/src/assets/monster.png" 
+<img src="https://github.com/WomenPlusPlus/deploy-impact-22-wikimini-a/blob/main/src/src/assets/monster.png" 
      width="20" height="28" align="left">
 ## Development.
 ### Prerequisites.
