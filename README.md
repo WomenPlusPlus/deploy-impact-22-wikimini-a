@@ -29,6 +29,10 @@ Design and develop a completely new mobile application to make the process of le
 
 <img src="https://github.com/WomenPlusPlus/deploy-impact-22-wikimini-a/blob/main/src/src/assets/monster.png" 
      width="20" height="28" align="left">
+     
+## Our current and future designs
+https://www.figma.com/file/fJ2Y8ucyIbmP7MGTe4kZ3e/wikimini?node-id=664%3A119774&t=SuCMc2ukheRqwVE2-0     
+
 ## Development.
 ### Prerequisites.
 
