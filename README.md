@@ -16,6 +16,10 @@ Design and develop a completely new mobile application to make the process of le
 ![demo](https://user-images.githubusercontent.com/57358923/202674400-64c20327-0e43-4987-91aa-282004ef20ff.gif)
 </div>
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/57358923/202674400-64c20327-0e43-4987-91aa-282004ef20ff.gif" alt="animated" />
+</p>
+
 
 ## Users.
 
