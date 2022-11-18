@@ -31,7 +31,7 @@ Design and develop a completely new mobile application to make the process of le
      width="20" height="28" align="left">
      
 ## Our current and future designs
-https://www.figma.com/file/fJ2Y8ucyIbmP7MGTe4kZ3e/wikimini?node-id=664%3A119774&t=SuCMc2ukheRqwVE2-0     
+https://www.figma.com/file/UvzXrXAgeCe5pszX9UPw2X/wikiminions?node-id=45%3A441&t=B7HZQPt3Mpoflcpt-0     
 
 ## Development.
 ### Prerequisites.
