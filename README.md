@@ -70,3 +70,8 @@ https://wikimini.miraheze.org/wiki/  (currently down)
 * Ezequias Calvo
 * Teodora Schipor
 * Andrea Quiroga
+
+
+### Please contact Emilia Rigo for any further development with the product owner
+[Linkedin](https://www.linkedin.com/in/emilia-rigo-5a257185/)
+[Gmail](rigoemiliar@gmail.com)
